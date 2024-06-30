@@ -44,17 +44,17 @@ export default {
     toggleMenu() {
       this.isMenuOpen = !this.isMenuOpen;
       if (!this.isMenuOpen && !this.isMobile) {
-        document.body.style.overflow = 'auto'; // Reset body overflow
+        document.body.style.overflow = 'auto';
       } else if (this.isMenuOpen && !this.isMobile) {
-        document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+        document.body.style.overflow = 'hidden';
       }
     },
     closeMenu() {
       this.isMenuOpen = false;
-      document.body.style.overflow = 'auto'; // Reset body overflow on menu close
+      document.body.style.overflow = 'auto';
     },
     updateWindowWidth() {
-      this.isMobile = window.innerWidth < 769; // Check if screen width is less than 769px
+      this.isMobile = window.innerWidth < 769;
     }
   }
 };
@@ -105,21 +105,21 @@ export default {
 
 .menu-container {
   position: absolute;
-  top: 80px; /* Adjust top position to align with navbar */
-  right: 20px; /* Adjust right position */
+  top: 80px;
+  right: 20px;
   background-color: rgba(0, 0, 0, 0.8);
-  width: 250px; /* Increase width for desktop */
+  width: 250px;
   max-height: 10px;
   overflow: hidden;
   border-radius: 10px;
   padding: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: max-height 0.3s ease-in-out, width 0.3s ease-in-out; /* Add width transition */
+  transition: max-height 0.3s ease-in-out, width 0.3s ease-in-out;
 }
 
 .menu-container.active {
-  max-height: 400px; /* Adjust max-height as needed */
-  width: 300px; /* Increase width when menu is open on desktop */
+  max-height: 400px;
+  width: 300px;
 }
 
 .navbar-menu {
@@ -135,14 +135,14 @@ export default {
 @media (max-width: 768px) {
   .menu-container {
     position: fixed;
-    top: 60px; /* Adjust top position to align with navbar */
+    top: 60px;
     right: 0;
     width: 100%;
     height: 100%;
     max-height: 100%;
     overflow-y: auto;
     background-color: rgba(0, 0, 0, 0.8);
-    z-index: 999; /* Ensure menu is above other content */
+    z-index: 999;
     transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
   }
@@ -152,11 +152,11 @@ export default {
   }
 
   .navbar-menu {
-    padding: 20px; /* Adjust padding for better touch experience */
+    padding: 20px;
   }
 
   .menu-icons {
-    margin-top: 10px; /* Move menu icon down slightly on smaller screens */
+    margin-top: 10px;
   }
 }
 </style>

@@ -1,21 +1,20 @@
-<!-- Home.vue -->
 <template>
   <div>
-      <Navbar /> 
+    <Navbar />
     <h1>Welcome to our Website</h1>
     <!-- Your Home page content goes here -->
   </div>
 </template>
 
 <script>
- import Navbar from './Navbar.vue'; 
+import Navbar from './Navbar.vue';
+
 export default {
-  name: 'Services',
-  // Component logic goes here
-   components: {
-    Navbar // Register Navbar component
+  name: 'Home',
+  components: {
+    Navbar,
   },
-}
+};
 </script>
 
 <style scoped>
