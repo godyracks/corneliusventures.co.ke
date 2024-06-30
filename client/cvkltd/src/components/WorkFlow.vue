@@ -5,7 +5,7 @@
       <div class="left-child">
         <img src="@/assets/engineer.png" alt="Engineer" class="engineer-img" />
       </div>
-      <div class="right-child" :class="{ 'in-view': inView }">
+      <div class="right-child">
         <h2 class="header">OUR WORKFLOW</h2>
         <h3 class="subheader">CREATING SUCCESSFUL STORIES</h3>
         <div class="steps">
@@ -49,11 +49,12 @@ export default {
   },
   methods: {
     handleIntersect(entries, observer) {
-      if (entries[0].isIntersecting) {
-        this.inView = true; // Set inView to true when component is in viewport
-      } else {
-        this.inView = false; // Set inView to false when component is out of viewport
-      }
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          this.inView = true;
+          observer.unobserve(entry.target);
+        }
+      });
     }
   }
 };
@@ -100,18 +101,14 @@ export default {
 .left-child .engineer-img {
   max-width: 100%;
   height: auto;
+  border-radius: 0; /* Remove border-radius */
 }
 
 .right-child {
   flex: 1;
   padding: 20px;
   text-align: center;
-  opacity: 0; /* Initially hide the right child */
-  transition: opacity 0.5s ease; /* Transition for opacity */
-}
-
-.right-child.in-view {
-  opacity: 1; /* Show the right child when in view */
+  position: relative; /* Ensure relative positioning for the rain effect */
 }
 
 .header {
@@ -135,6 +132,8 @@ export default {
 .step {
   margin-bottom: 20px;
   text-align: center;
+  opacity: 0; /* Initially hide steps */
+  animation: rain 0.5s ease forwards; /* Apply animation to each step */
 }
 
 .step-header {
@@ -143,15 +142,10 @@ export default {
   margin-bottom: 10px;
 }
 
-/* Animation for raining effect */
-.step {
-  opacity: 0;
-  animation: rainText 0.5s ease forwards;
-}
-
-@keyframes rainText {
+/* Animation for rain effect */
+@keyframes rain {
   0% {
-    transform: translateY(-50px);
+    transform: translateY(-100%);
     opacity: 0;
   }
   100% {
@@ -160,4 +154,13 @@ export default {
   }
 }
 
+@media (max-width: 769px) {
+  .left-child {
+    display: none; /* Hide the left child on smaller screens */
+  }
+
+  .right-child {
+    flex: 1; /* Take full width on smaller screens */
+  }
+}
 </style>
