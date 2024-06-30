@@ -56,7 +56,7 @@ h1 {
 }
 
 div {
-  max-width: 100%; /* Adjust as needed */
+  max-width: 100%; 
   margin: 0 auto;
   padding: 0;
 }

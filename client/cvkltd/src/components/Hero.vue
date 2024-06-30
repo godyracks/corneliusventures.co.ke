@@ -1,7 +1,6 @@
 <template>
   <div class="hero">
     <div class="slider">
-      <!-- Sliding background images with blue overlay -->
       <div class="slide" v-for="(image, index) in images" :key="index" :class="{ 'active': index === activeIndex }">
         <div class="overlay"></div>
         <img :src="image.src" :alt="image.alt" />
@@ -16,7 +15,6 @@
       </div>
     </div>
     <div class="social-icons">
-      <!-- Social icons column -->
       <a href="#" class="social-icon"><img src="@/assets/x_ic.png" alt="X Icon" /></a>
       <a href="#" class="social-icon"><img src="@/assets/fb_ic.png" alt="Facebook Icon" /></a>
       <a href="#" class="social-icon"><img src="@/assets/yt_ic.png" alt="YouTube Icon" /></a>
@@ -27,7 +25,6 @@
 </template>
 
 <script>
-// Import images directly
 import hero1 from '@/assets/hero1.jpg';
 import hero2 from '@/assets/hero2.jpg';
 import hero3 from '@/assets/hero3.jpg';
@@ -45,8 +42,7 @@ export default {
     };
   },
   mounted() {
-    // Automatically advance the slide every few seconds
-    setInterval(this.nextSlide, 3000); // Adjust interval as needed
+    setInterval(this.nextSlide, 3000);
   },
   methods: {
     nextSlide() {
@@ -65,7 +61,7 @@ export default {
 .slider {
   position: relative;
   width: 100%;
-  height: 500px; /* Adjust height as needed */
+  height: 500px;
   overflow: hidden;
 }
 
@@ -95,8 +91,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(114, 160, 193, 0.5)
- /* Blue overlay color */
+  background-color: rgba(114, 160, 193, 0.5);
 }
 
 .content {
@@ -116,6 +111,7 @@ export default {
 
 .title {
   font-size: 3rem;
+  font-weight: 800;
   margin-bottom: 20px;
 }
 
@@ -132,12 +128,12 @@ button {
 }
 
 .pdf-button {
-  background-color: orange; 
+  background-color: orange;
   color: #ffffff;
 }
 
 .explore-button {
-  background-color: rgba(114, 160, 193) ;
+  background-color: rgba(114, 160, 193);
   color: #ffffff;
 }
 
@@ -148,15 +144,22 @@ button {
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
+   
 }
 
 .social-icon {
   margin-bottom: 10px;
+  height: 60px;
+  width: 60px;
+  background-color: #72A0C1;
+  border-radius: 50%;
+   box-shadow: 4px 0 8px rgba(0, 0, 0, 0.5);
+ 
 }
 
 .social-icon img {
-  width: 30px; /* Adjust icon size as needed */
-  height: auto;
+   height: 50px;
+  width: 50px;
 }
 
 @media (max-width: 768px) {
@@ -166,15 +169,40 @@ button {
     box-sizing: border-box;
   }
 
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .buttons button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+
   .social-icons {
   position: absolute;
   top: 100%;
-  bottom: -150px;
+  bottom: -110px;
   left: 20px;
   transform: translateY(-50%);
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+
+  }
+
+  .social-icon {
+  margin-bottom: 10px;
+  height: 50px;
+  width: 50px;
+  background-color: #72A0C1;
+  border-radius: 50%;
+   box-shadow: 4px 0 8px rgba(0, 0, 0, 0.5);
+ 
+}
+
+.social-icon img {
+   height: 40px;
+  width: 40px;
 }
 }
 </style>
