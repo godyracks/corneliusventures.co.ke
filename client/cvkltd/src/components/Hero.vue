@@ -25,9 +25,9 @@
 </template>
 
 <script>
-import hero1 from '@/assets/hero1.jpg';
-import hero2 from '@/assets/hero2.jpg';
-import hero3 from '@/assets/hero3.jpg';
+import hero1 from '@/assets/mansion1.jpg';
+import hero2 from '@/assets/mansion2.jpg';
+import hero3 from '@/assets/mansion_under.jpg';
 
 export default {
   name: 'Hero',
@@ -42,7 +42,7 @@ export default {
     };
   },
   mounted() {
-    setInterval(this.nextSlide, 3000);
+    setInterval(this.nextSlide, 4000); 
   },
   methods: {
     nextSlide() {
@@ -72,7 +72,7 @@ export default {
   width: 100%;
   height: 100%;
   opacity: 0;
-  transition: opacity 0.5s ease;
+  transition: opacity 2s ease-in-out; /* Smooth cross-fade transition */
 }
 
 .slide img {
@@ -125,7 +125,6 @@ button {
   font-size: 1rem;
   border: none;
   cursor: pointer;
-  
   border-radius: 12px;
 }
 
@@ -136,8 +135,8 @@ button {
 }
 
 .explore-button {
-background-color: transparent;
- border: 2px solid rgba(114, 160, 193);
+  background-color: transparent;
+  border: 2px solid rgba(114, 160, 193);
   color: #000000;
 }
 
@@ -148,21 +147,19 @@ background-color: transparent;
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
-   
 }
 
 .social-icon {
   margin-bottom: 10px;
   height: 60px;
   width: 60px;
-  background-color: #72A0C1;
+  background-color: #72a0c1;
   border-radius: 50%;
-   box-shadow: 4px 0 8px rgba(0, 0, 0, 0.5);
- 
+  box-shadow: 4px 0 8px rgba(0, 0, 0, 0.5);
 }
 
 .social-icon img {
-   height: 50px;
+  height: 50px;
   width: 50px;
 }
 
@@ -183,30 +180,28 @@ background-color: transparent;
   }
 
   .social-icons {
-  position: absolute;
-  top: 100%;
-  bottom: -110px;
-  left: 20px;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-
+    position: absolute;
+    top: 100%;
+    bottom: -110px;
+    left: 20px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
   }
 
   .social-icon {
-  margin-bottom: 10px;
-  height: 50px;
-  width: 50px;
-  background-color: #72A0C1;
-  border-radius: 50%;
-   box-shadow: 4px 0 8px rgba(0, 0, 0, 0.5);
- 
-}
-
-.social-icon img {
-   height: 40px;
+    margin-bottom: 10px;
+    height: 50px;
+    width: 50px;
+    background-color: #72a0c1;
+    border-radius: 50%;
+    box-shadow: 4px 0 8px rgba(0, 0, 0, 0.5);
+  }
+  .social-icon img {
+  height: 40px;
   width: 40px;
+
 }
 }
 </style>
