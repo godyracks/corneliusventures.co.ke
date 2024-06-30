@@ -1,0 +1,5 @@
+./server/node_modules
+./server/node_modules/.bin
+./server/.env
+./client/cvkltd/node_modules
+
