@@ -2,7 +2,6 @@
   <div class="hero">
     <div class="slider">
       <div class="slide" v-for="(image, index) in images" :key="index" :class="{ 'active': index === activeIndex }">
-        <div class="overlay"></div>
         <img :src="image.src" :alt="image.alt" />
       </div>
     </div>
@@ -38,11 +37,15 @@ export default {
         { src: hero2, alt: 'Hero Image 2' },
         { src: hero3, alt: 'Hero Image 3' }
       ],
-      activeIndex: 0
+      activeIndex: 0,
+      intervalId: null
     };
   },
   mounted() {
-    setInterval(this.nextSlide, 3000);
+    this.intervalId = setInterval(this.nextSlide, 3000);
+  },
+  beforeDestroy() {
+    clearInterval(this.intervalId);
   },
   methods: {
     nextSlide() {
@@ -72,7 +75,7 @@ export default {
   width: 100%;
   height: 100%;
   opacity: 0;
-  transition: opacity 0.5s ease;
+  transition: opacity 1s ease-in-out;
 }
 
 .slide img {
@@ -83,15 +86,7 @@ export default {
 
 .slide.active {
   opacity: 1;
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(114, 160, 193, 0.5);
+  z-index: 1;
 }
 
 .content {
@@ -101,7 +96,7 @@ export default {
   transform: translate(-50%, -50%);
   text-align: center;
   color: #ffffff;
-  z-index: 1;
+  z-index: 2;
 }
 
 .subtitle {
@@ -125,7 +120,6 @@ button {
   font-size: 1rem;
   border: none;
   cursor: pointer;
-  
   border-radius: 12px;
 }
 
@@ -136,8 +130,8 @@ button {
 }
 
 .explore-button {
-background-color: transparent;
- border: 2px solid rgba(114, 160, 193);
+  background-color: transparent;
+  border: 2px solid rgba(114, 160, 193);
   color: #000000;
 }
 
@@ -148,7 +142,6 @@ background-color: transparent;
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
-   
 }
 
 .social-icon {
@@ -157,12 +150,11 @@ background-color: transparent;
   width: 60px;
   background-color: #72A0C1;
   border-radius: 50%;
-   box-shadow: 4px 0 8px rgba(0, 0, 0, 0.5);
- 
+  box-shadow: 4px 0 8px rgba(0, 0, 0, 0.5);
 }
 
 .social-icon img {
-   height: 50px;
+  height: 50px;
   width: 50px;
 }
 
@@ -183,30 +175,28 @@ background-color: transparent;
   }
 
   .social-icons {
-  position: absolute;
-  top: 100%;
-  bottom: -110px;
-  left: 20px;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-
+    position: absolute;
+    top: 100%;
+    bottom: -110px;
+    left: 20px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
   }
 
   .social-icon {
-  margin-bottom: 10px;
-  height: 50px;
-  width: 50px;
-  background-color: #72A0C1;
-  border-radius: 50%;
-   box-shadow: 4px 0 8px rgba(0, 0, 0, 0.5);
- 
-}
+    margin-bottom: 10px;
+    height: 50px;
+    width: 50px;
+    background-color: #72A0C1;
+    border-radius: 50%;
+    box-shadow: 4px 0 8px rgba(0, 0, 0, 0.5);
+  }
 
-.social-icon img {
-   height: 40px;
-  width: 40px;
-}
+  .social-icon img {
+    height: 40px;
+    width: 40px;
+  }
 }
 </style>

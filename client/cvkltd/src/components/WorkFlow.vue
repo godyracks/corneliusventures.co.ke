@@ -118,8 +118,9 @@ export default {
 
 .left-child .engineer-img {
   max-width: 100%;
-  height: auto;
-  border-radius: 0; /* Remove border-radius */
+  height: 100%;
+  border-radius: 0; 
+  object-fit: cover;
 }
 
 .right-child {
