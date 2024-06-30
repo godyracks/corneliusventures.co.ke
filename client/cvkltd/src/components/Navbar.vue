@@ -3,7 +3,7 @@
     <div class="navbar-left">
       <div class="logo">
         <img src="@/assets/cvk.png" alt="Business Logo" />
-        <span class="business-name">CVK LTD</span>
+        <span class="business-name">Cornelius Ventures Kenya LTD</span>
       </div>
     </div>
     <div class="menu-icons" @click="toggleMenu">
@@ -158,5 +158,9 @@ export default {
   .menu-icons {
     margin-top: 10px;
   }
+  .business-name {
+  font-size: 1rem;
+  color: #ffffff;
+}
 }
 </style>
