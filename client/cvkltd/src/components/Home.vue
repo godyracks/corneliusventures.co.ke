@@ -1,21 +1,22 @@
 <template>
   <div>
-    <Navbar /> 
-     <Hero /> 
-       <About /> 
-     <FeaturedProjects /> 
-   
-      <Footer /> 
+    <Navbar />
+    <Hero />
+    <About />
+    <FeaturedProjects />
+    <WorkFlow />
+    <Footer />
   </div>
 </template>
 
 <script>
-import axios from 'axios';
-import Navbar from './Navbar.vue'; 
-import Footer from './Footer.vue'; 
-import Hero from './Hero.vue'; 
-import About from './About.vue'; 
-import FeaturedProjects from './FeaturedProjects.vue';
+import axios from "axios";
+import Navbar from "./Navbar.vue";
+import WorkFlow from "./WorkFlow.vue";
+import Hero from "./Hero.vue";
+import About from "./About.vue";
+import FeaturedProjects from "./FeaturedProjects.vue";
+import Footer from "./Footer.vue";
 
 export default {
   components: {
@@ -23,9 +24,10 @@ export default {
     Hero,
     About,
     FeaturedProjects,
-    Footer
+    WorkFlow,
+    Footer,
   },
-}
+};
 </script>
 
 <style scoped>
@@ -39,7 +41,6 @@ body {
   position: sticky;
   top: 0;
   z-index: 1000;
- 
 }
 
 ul {
@@ -56,7 +57,7 @@ h1 {
 }
 
 div {
-  max-width: 100%; 
+  max-width: 100%;
   margin: 0 auto;
   padding: 0;
 }
