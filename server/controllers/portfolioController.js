@@ -4,10 +4,20 @@ const path = require('path');
 const multer = require('multer');
 const upload = require('../middleware/upload'); // Assuming upload middleware is correctly configured
 
-// Get all portfolios
+
+// Get all portfolios with optional limit and order by descending
 exports.getPortfolios = async (req, res) => {
   try {
-    const [rows, fields] = await pool.query('SELECT * FROM projects');
+    let sql = 'SELECT * FROM projects';
+    const limit = parseInt(req.query.limit); // Parse limit query parameter as integer
+
+    if (!isNaN(limit) && limit > 0) {
+      sql += ` ORDER BY id DESC LIMIT ${limit}`;
+    } else {
+      sql += ` ORDER BY id DESC`; // Default to DESC order if no limit is provided
+    }
+
+    const [rows, fields] = await pool.query(sql);
     res.json(rows);
   } catch (error) {
     console.error('Error fetching portfolios:', error);

@@ -5,7 +5,7 @@ const passport = require('passport');
 const session = require('express-session');
 const morgan = require('morgan');
 const mysql = require('mysql2');
-const multer = require('multer'); // Add multer for file uploads
+const multer = require('multer');
 const path = require('path');
 const authRoutes = require('./routes/authRoutes');
 const serviceRoutes = require('./routes/serviceRoutes');
@@ -33,47 +33,37 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Configure Passport and Google OAuth2
 require('./utils/googleAuth')(passport);
 
-// MySQL Connection Pool setup
 const pool = mysql.createPool({
   host: process.env.DB_HOST || 'localhost',
   user: process.env.DB_USER || 'root',
-  password: process.env.DB_PASSWORD || '$@Godygaro66',
+  password: process.env.DB_PASSWORD || '*****',
   database: process.env.DB_NAME || 'cvk',
   waitForConnections: true,
   connectionLimit: 10,
-  queueLimit: 0
+  queueLimit: 0,
 });
 
-// Configure multer for file uploads
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, 'uploads/'); // Specify the directory where files will be stored
+    cb(null, 'uploads/');
   },
   filename: function (req, file, cb) {
-    cb(null, Date.now() + '-' + file.originalname); // Specify how the file should be named
-  }
+    cb(null, Date.now() + '-' + file.originalname);
+  },
 });
 
 const upload = multer({ storage: storage });
 
-
-// Routes
-app.use('/api/users', userRoutes); // Example user routes
-app.use('/api/services', serviceRoutes); // Use your service routes
-app.use('/api/auth', authRoutes); // Use your authentication routes
-
-// Portfolio routes with file upload handling
-app.use('/api/portfolio', portfolioRoutes); 
-
-// Serve uploaded files statically
+app.use('/api/users', userRoutes);
+app.use('/api/services', serviceRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/portfolio', portfolioRoutes);
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 const PORT = process.env.PORT || 8080;
 
-// Start server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });

@@ -95,7 +95,8 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(112, 112, 219, 0.5); /* Blue overlay color */
+  background-color: rgba(114, 160, 193, 0.5)
+ /* Blue overlay color */
 }
 
 .content {
@@ -131,12 +132,12 @@ button {
 }
 
 .pdf-button {
-  background-color: orange; /* Orange button */
+  background-color: orange; 
   color: #ffffff;
 }
 
 .explore-button {
-  background-color: #007bff; /* Blue button */
+  background-color: rgba(114, 160, 193) ;
   color: #ffffff;
 }
 

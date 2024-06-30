@@ -11,13 +11,13 @@
     <div class="image-container">
       <div
         class="image-card"
-        v-for="(project, index) in projects"
-        :key="index"
+        v-for="project in projects"
+        :key="project.id"
         ref="cards"
       >
-        <img :src="project.image" :alt="project.title" />
+        <img :src="getImageUrl(project.image1_url)" :alt="project.name" />
         <div class="overlay">
-          <h3>{{ project.title }}</h3>
+          <h3>{{ project.name }}</h3>
           <p>{{ project.description }}</p>
         </div>
       </div>
@@ -27,21 +27,17 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: 'FeaturedProjects',
   data() {
     return {
-      projects: [
-        { title: 'Project 1', image: 'https://via.placeholder.com/300', description: 'Description 1' },
-        { title: 'Project 2', image: 'https://via.placeholder.com/300', description: 'Description 2' },
-        { title: 'Project 3', image: 'https://via.placeholder.com/300', description: 'Description 3' },
-        { title: 'Project 4', image: 'https://via.placeholder.com/300', description: 'Description 4' },
-        { title: 'Project 5', image: 'https://via.placeholder.com/300', description: 'Description 5' },
-        { title: 'Project 6', image: 'https://via.placeholder.com/300', description: 'Description 6' },
-      ],
+      projects: []
     };
   },
   mounted() {
+    this.fetchProjects();
     const options = {
       threshold: 0.1,
     };
@@ -56,9 +52,32 @@ export default {
       });
     }, options);
 
-    this.$refs.cards.forEach((card) => {
-      observer.observe(card);
+    // Using $nextTick to ensure DOM is updated
+    this.$nextTick(() => {
+      if (this.$refs.cards) {
+        this.$refs.cards.forEach((card) => {
+          observer.observe(card);
+        });
+      }
     });
+  },
+  methods: {
+    async fetchProjects() {
+      try {
+        const response = await axios.get('http://localhost:5000/api/portfolio?limit=6');
+        this.projects = response.data;
+        console.log('Projects fetched:', this.projects);
+        console.log('Images fetched:', this.projects.map(project => project.image1_url));
+      } catch (error) {
+        console.error('Error fetching projects:', error);
+      }
+    },
+    formatDate(date) {
+      return new Date(date).toLocaleDateString();
+    },
+    getImageUrl(imageFilename) {
+      return `http://localhost:5000/${imageFilename}`;
+    }
   },
 };
 </script>
@@ -107,24 +126,25 @@ export default {
   gap: 18px;
   max-width: 800px;
   margin: 0 auto;
+
 }
 
 .image-card {
   position: relative;
   width: calc(33.333% - 20px);
   overflow: hidden;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  opacity: 1;
+    
+    height: 280px;
+ 
 }
 
-.image-card.show {
-  opacity: 1;
-  transform: translateY(0);
-}
+
 
 .image-card img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 
@@ -148,7 +168,7 @@ export default {
 .view-all {
   background-color: #2F363F;
   color: #ffffff;
-  border: 2px solid orange;
+  border: 1px solid orange;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
