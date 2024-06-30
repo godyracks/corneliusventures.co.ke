@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Navbar /> <!-- Include Navbar component here -->
+    <Navbar /> 
 
     <h1>Portfolio</h1>
     <div v-for="project in projects" :key="project.id" class="project-card">
@@ -16,7 +16,7 @@
 
 <script>
 import axios from 'axios';
-import Navbar from './Navbar.vue'; // Import Navbar component
+import Navbar from './Navbar.vue'; 
 
 export default {
   components: {
