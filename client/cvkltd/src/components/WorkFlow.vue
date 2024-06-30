@@ -28,12 +28,53 @@
         </div>
       </div>
     </div>
+    <div class="rain-container" ref="rainContainer"></div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'Workflow',
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  destroyed() {
+    window.removeEventListener('scroll', this.handleScroll);
+  },
+  methods: {
+    handleScroll() {
+      // Check if the workflow component is in view
+      const workflow = this.$el;
+      const rect = workflow.getBoundingClientRect();
+
+      if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+        // Trigger rain effect
+        this.createRain();
+      }
+    },
+    createRain() {
+      // Clear previous rain elements
+      const rainContainer = this.$refs.rainContainer;
+      rainContainer.innerHTML = '';
+
+      // Create raindrop elements
+      const steps = this.$el.querySelectorAll('.step');
+      steps.forEach((step, index) => {
+        const stepRect = step.getBoundingClientRect();
+        const rainDrop = document.createElement('span');
+        rainDrop.textContent = step.querySelector('.step-header').textContent;
+        rainDrop.classList.add('raindrop');
+        rainDrop.style.top = `${stepRect.top}px`;
+        rainContainer.appendChild(rainDrop);
+
+        // Animate raindrop falling
+        setTimeout(() => {
+          rainDrop.style.top = `${window.innerHeight}px`;
+          rainDrop.style.opacity = '0';
+        }, index * 100); // Adjust timing for staggered effect
+      });
+    }
+  }
 };
 </script>
 
@@ -90,12 +131,14 @@ export default {
 .header {
   color: orange;
   font-size: 2rem;
+  font-weight: 900;
   margin-bottom: 10px;
 }
 
 .subheader {
   color: orange;
   font-size: 1.5rem;
+  font-weight: 700;
   margin-bottom: 20px;
 }
 
@@ -113,6 +156,7 @@ export default {
 .step-header {
   color: orange;
   font-size: 1.2rem;
+   font-weight: 700;
   margin-bottom: 10px;
 }
 
@@ -123,6 +167,37 @@ export default {
 
   .right-child {
     flex: 1; /* Take full width on smaller screens */
+  }
+}
+
+.rain-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.raindrop {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1rem; /* Adjust font size as needed */
+  color: #ffffff;
+  pointer-events: none;
+  animation: rain-fall 1.5s linear;
+}
+
+@keyframes rain-fall {
+  0% {
+    transform: translateY(-50%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
   }
 }
 </style>
