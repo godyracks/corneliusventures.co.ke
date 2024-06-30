@@ -1,39 +1,63 @@
 <template>
   <div>
-    <h1>Home Page</h1>
-    <ul>
-      <li v-for="user in users" :key="user.id">
-        {{ user.name }} - {{ user.email }}
-      </li>
-    </ul>
+    <Navbar /> 
+     <Hero /> 
+       <About /> 
+     <FeaturedProjects /> 
+   
+      <Footer /> 
   </div>
 </template>
 
 <script>
 import axios from 'axios';
+import Navbar from './Navbar.vue'; 
+import Footer from './Footer.vue'; 
+import Hero from './Hero.vue'; 
+import About from './About.vue'; 
+import FeaturedProjects from './FeaturedProjects.vue';
 
 export default {
-  data() {
-    return {
-      users: []
-    };
+  components: {
+    Navbar,
+    Hero,
+    About,
+    FeaturedProjects,
+    Footer
   },
-  mounted() {
-    this.fetchUsers();
-  },
-  methods: {
-    async fetchUsers() {
-      try {
-        const response = await axios.get('http://localhost:5000/api/users');
-        this.users = response.data;
-      } catch (error) {
-        console.error('Error fetching users:', error);
-      }
-    }
-  }
-};
+}
 </script>
 
 <style scoped>
-/* Component-specific styles */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+ 
+}
+
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+li {
+  margin: 10px 0;
+}
+
+h1 {
+  text-align: center;
+}
+
+div {
+  max-width: 100%; /* Adjust as needed */
+  margin: 0 auto;
+  padding: 0;
+}
 </style>

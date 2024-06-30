@@ -6,7 +6,7 @@
 
   --vt-c-black: #181818;
   --vt-c-black-soft: #222222;
-  --vt-c-black-mute: #282828;
+  --vt-c-black-mute: #414A4C;
 
   --vt-c-indigo: #2c3e50;
 
@@ -23,7 +23,7 @@
 
 /* semantic color variables for this project */
 :root {
-  --color-background: var(--vt-c-white);
+  --color-background: var( --vt-c-black-mute);
   --color-background-soft: var(--vt-c-white-soft);
   --color-background-mute: var(--vt-c-white-mute);
 
@@ -38,7 +38,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-background: var(--vt-c-black);
+    --color-background: var(  --vt-c-white-mute);
     --color-background-soft: var(--vt-c-black-soft);
     --color-background-mute: var(--vt-c-black-mute);
 
@@ -55,13 +55,15 @@
 *::after {
   box-sizing: border-box;
   margin: 0;
+  padding: 0;
   font-weight: normal;
 }
 
 body {
-  min-height: 100vh;
+  /* min-height: 100vh; */
+  max-width: none;
   color: var(--color-text);
-  background: var(--color-background);
+  background:  var(  --vt-c-white-mute);
   transition:
     color 0.5s,
     background-color 0.5s;

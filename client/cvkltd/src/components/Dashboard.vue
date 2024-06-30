@@ -1,5 +1,6 @@
 <template>
   <div>
+       <Navbar /> 
     <h1>Dashboard - Upload Project</h1>
 
     <form @submit.prevent="submitForm" enctype="multipart/form-data">
@@ -34,8 +35,11 @@
 
 <script>
 import axios from 'axios';
-
+import Navbar from './Navbar.vue';
 export default {
+    components: {
+    Navbar // Register Navbar component
+  },
   data() {
     return {
       name: '',
