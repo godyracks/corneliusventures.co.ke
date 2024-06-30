@@ -1,5 +1,5 @@
 <template>
-  <div class="workflow" ref="workflow">
+  <div class="workflow">
     <div class="overlay"></div>
     <div class="content">
       <div class="left-child">
@@ -9,9 +9,21 @@
         <h2 class="header">OUR WORKFLOW</h2>
         <h3 class="subheader">CREATING SUCCESSFUL STORIES</h3>
         <div class="steps">
-          <div class="step" v-for="(step, index) in steps" :key="index">
-            <h4 class="step-header">Step {{ index + 1 }}</h4>
-            <p>{{ step.text }}</p>
+          <div class="step">
+            <h4 class="step-header">Step 1</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          </div>
+          <div class="step">
+            <h4 class="step-header">Step 2</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          </div>
+          <div class="step">
+            <h4 class="step-header">Step 3</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+          </div>
+          <div class="step">
+            <h4 class="step-header">Step 4</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
           </div>
         </div>
       </div>
@@ -22,41 +34,6 @@
 <script>
 export default {
   name: 'Workflow',
-  data() {
-    return {
-      steps: [
-        { text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
-        { text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." },
-        { text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
-        { text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." }
-      ],
-      observer: null,
-      inView: false
-    };
-  },
-  mounted() {
-    this.observer = new IntersectionObserver(this.handleIntersect, {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.5 // Trigger when 50% of the component is visible
-    });
-    this.observer.observe(this.$refs.workflow);
-  },
-  destroyed() {
-    if (this.observer) {
-      this.observer.disconnect();
-    }
-  },
-  methods: {
-    handleIntersect(entries, observer) {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          this.inView = true;
-          observer.unobserve(entry.target);
-        }
-      });
-    }
-  }
 };
 </script>
 
@@ -75,7 +52,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(15, 19, 21, 0.25);
+  background-color: rgba(0, 4, 6, 0.25);
 }
 
 .content {
@@ -108,7 +85,6 @@ export default {
   flex: 1;
   padding: 20px;
   text-align: center;
-  position: relative; /* Ensure relative positioning for the rain effect */
 }
 
 .header {
@@ -132,26 +108,12 @@ export default {
 .step {
   margin-bottom: 20px;
   text-align: center;
-  opacity: 0; /* Initially hide steps */
-  animation: rain 0.5s ease forwards; /* Apply animation to each step */
 }
 
 .step-header {
   color: orange;
   font-size: 1.2rem;
   margin-bottom: 10px;
-}
-
-/* Animation for rain effect */
-@keyframes rain {
-  0% {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
 }
 
 @media (max-width: 769px) {
