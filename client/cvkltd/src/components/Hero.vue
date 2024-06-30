@@ -120,21 +120,25 @@ export default {
 }
 
 button {
-  padding: 10px 20px;
+  padding: 15px 30px;
   margin: 0 10px;
   font-size: 1rem;
   border: none;
   cursor: pointer;
+  
+  border-radius: 12px;
 }
 
 .pdf-button {
   background-color: orange;
   color: #ffffff;
+  border: 2px solid #000000;
 }
 
 .explore-button {
-  background-color: rgba(114, 160, 193);
-  color: #ffffff;
+background-color: transparent;
+ border: 2px solid rgba(114, 160, 193);
+  color: #000000;
 }
 
 .social-icons {
