@@ -1,6 +1,7 @@
 # CVK Ltd Project Management Dashboard
 
-This project is a Vue.js application using Vuetify to create a project management dashboard. It allows users to upload projects, including project details and images, which are stored in a MySQL database.
+This project is a Vue.js application using Vuetify to create a project management dashboard. It allows users to manage construction projects, upload project details, and images, which are stored in a MySQL database through an Express.js backend.
+
 
 ## Table of Contents
 - [Features](#features)
@@ -102,31 +103,25 @@ This project is a Vue.js application using Vuetify to create a project managemen
 To use the application, navigate to `http://localhost:5175/` in your browser. You will see the dashboard where you can upload projects by filling in the form fields and submitting them.
 
 ## Project Structure
-yourprojectfolder/
-├── server/
-│ ├── config/
-│ │ └── db.js
-│ ├── controllers/
-│ │ └── portfolioController.js
-│ ├── routes/
-│ │ └── portfolioRoutes.js
-│ ├── server.js
-│ └── .env
-└── client/
-└── cvkltd/
-├── public/
-├── src/
-│ ├── assets/
-│ ├── components/
-│ │ └── Dashboard.vue
-│ ├── plugins/
-│ │ └── vuetify.js
-│ ├── router/
-│ ├── store/
-│ ├── views/
-│ ├── App.vue
-│ └── main.js
-└── package.json
+project-root/
+│
+├── client/          # Vue.js frontend application
+│   ├── public/
+│   └── src/
+│       ├── assets/
+│       ├── components/
+│       ├── views/
+│       ├── App.vue
+│       └── main.js
+│
+└── server/          # Node.js Express backend
+    ├── controllers/
+    ├── middleware/
+    ├── routes/
+    ├── config/
+    ├── models/
+    ├── app.js
+    └── server.js
 
 
 ## API Endpoints
