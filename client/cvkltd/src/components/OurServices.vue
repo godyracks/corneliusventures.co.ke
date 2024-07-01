@@ -1,9 +1,12 @@
 <template>
   <div class="services-container">
-    <div class="service-card" v-for="(service, index) in services" :key="index">
-      <img :src="service.icon" :alt="service.title" class="service-icon" />
-      <h3 class="service-title">{{ service.title }}</h3>
-      <p class="service-content">{{ service.content }}</p>
+    <h2 class="services-title">OUR SERVICES</h2>
+    <div class="services-grid">
+      <div class="service-card" v-for="(service, index) in services" :key="index">
+        <img :src="service.icon" :alt="service.title" class="service-icon" />
+        <h3 class="service-title">{{ service.title }}</h3>
+        <p class="service-content">{{ service.content }}</p>
+      </div>
     </div>
   </div>
 </template>
@@ -35,11 +38,21 @@ export default {
 
 <style scoped>
 .services-container {
+  background-color: #414A4C;
+  padding: 20px;
+  text-align: center;
+}
+
+.services-title {
+  color: #ffffff;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.services-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  background-color: #414A4C;
-  padding: 20px;
 }
 
 .service-card {
@@ -48,9 +61,15 @@ export default {
   border-radius: 10px;
   padding: 20px;
   margin: 10px;
-  flex: 1 1 calc(33.333% - 40px); /* For desktop: 3 cards per row */
+  flex: 1 1 calc(33.333% - 20px); /* For desktop: 3 cards per row */
   box-sizing: border-box;
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .service-icon {
@@ -71,7 +90,7 @@ export default {
 
 @media (max-width: 1024px) {
   .service-card {
-    flex: 1 1 calc(50% - 30px); /* For tablets: 2 cards per row */
+    flex: 1 1 calc(50% - 20px); /* For tablets: 2 cards per row */
   }
 }
 
