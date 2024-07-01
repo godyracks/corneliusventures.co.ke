@@ -48,9 +48,8 @@ export default {
 .banner-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
   width: 100%;
-  max-width: 1200px;
+  max-width: 800px;
 }
 
 .banner-square {
@@ -60,7 +59,6 @@ export default {
   align-items: center;
   background-color: #535C68;
   color: #fff;
-  border-radius: 10px;
   overflow: hidden;
 }
 
@@ -100,6 +98,22 @@ export default {
   left: 0;
 }
 
+.manager-image {
+  border-top-left-radius: 10px;
+}
+
+.mantra-text {
+  border-top-right-radius: 10px;
+}
+
+.designs-text {
+  border-bottom-left-radius: 10px;
+}
+
+.design-image {
+  border-bottom-right-radius: 10px;
+}
+
 @media (max-width: 768px) {
   .banner-grid {
     grid-template-columns: 1fr;
@@ -107,18 +121,24 @@ export default {
 
   .manager-image {
     order: 1;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
   }
 
   .mantra-text {
     order: 2;
+    border-radius: 0;
   }
 
   .design-image {
     order: 3;
+    border-radius: 0;
   }
 
   .designs-text {
     order: 4;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
   }
 
   .text-square {
