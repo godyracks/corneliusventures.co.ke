@@ -21,12 +21,12 @@ export default {
   data() {
     return {
       services: [
-        { icon: icon1, title: 'Service One', content: 'Description of service one.' },
-        { icon: icon2, title: 'Service Two', content: 'Description of service two.' },
-        { icon: icon3, title: 'Service Three', content: 'Description of service three.' },
-        { icon: icon4, title: 'Service Four', content: 'Description of service four.' },
-        { icon: icon5, title: 'Service Five', content: 'Description of service five.' },
-        { icon: icon6, title: 'Service Six', content: 'Description of service six.' }
+        { icon: icon1, title: 'Construction Consultant', content: 'Description of service one.' },
+        { icon: icon2, title: 'Fit Outs & Renovation', content: 'Description of service two.' },
+        { icon: icon3, title: 'Steel Fabrication', content: 'Description of service three.' },
+        { icon: icon4, title: 'Civil Works', content: 'Description of service four.' },
+        { icon: icon5, title: 'General Constructing', content: 'Description of service five.' },
+        { icon: icon6, title: 'Constructing Supervision', content: 'Description of service six.' }
       ]
     };
   }
