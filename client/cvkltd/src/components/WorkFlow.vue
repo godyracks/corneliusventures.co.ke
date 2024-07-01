@@ -107,6 +107,7 @@ export default {
   color: #ffffff;
   padding: 20px;
   text-align: center;
+  max-width: 1100px;
 }
 
 .left-child {
