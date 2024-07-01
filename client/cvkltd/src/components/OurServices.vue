@@ -41,6 +41,7 @@ export default {
   background-color: #414A4C;
   padding: 20px;
   text-align: center;
+
 }
 
 .services-title {
@@ -53,6 +54,8 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .service-card {
