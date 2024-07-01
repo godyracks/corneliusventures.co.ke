@@ -76,6 +76,8 @@ export default {
 .text-square h2 {
   margin-bottom: 10px;
   color: orange;
+  font-weight: 800;
+  font-size: 1.3rem;
 }
 
 .text-square ul {

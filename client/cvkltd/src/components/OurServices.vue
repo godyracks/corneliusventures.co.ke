@@ -38,7 +38,8 @@ export default {
 
 <style scoped>
 .services-container {
-  background-color: #414A4C;
+  /* background-color: #414A4C; */
+  background-color: #2C3539;
   padding: 20px;
   text-align: center;
 
