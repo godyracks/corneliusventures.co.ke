@@ -89,6 +89,8 @@ export default {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .card {
@@ -127,14 +129,16 @@ export default {
 
 .card-header {
  
-  color: #ffffff;
+  color: orange;
   font-size: 1.2rem;
-  padding: 10px;
+  font-weight: bold;
+  padding: 5px;
 }
 
 .card p {
   color: #ffffff;
     font-size: 0.9rem;
+    padding-bottom: 5px;
 }
 
 .read-more {
