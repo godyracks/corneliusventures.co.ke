@@ -1,6 +1,6 @@
 # CVK Ltd Project Management Dashboard
 
-This project is a Vue.js application using Vuetify to create a project management dashboard. It allows users to manage construction projects, upload project details, and images, which are stored in a MySQL database through an Express.js backend.
+This project is a Vue.js application, a project management dashboard and a dynamic web app. It allows users to manage construction projects, upload project details, and images, which are stored in a MySQL database through an Express.js backend.
 
 
 ## Table of Contents
@@ -30,8 +30,8 @@ This project is a Vue.js application using Vuetify to create a project managemen
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/yourusername/yourproject.git
-    cd yourproject
+    git clone https://github.com/godyracks/corneliusventures.co.ke.git
+    cd projectfolder
     ```
 
 2. Navigate to the server directory:
@@ -83,13 +83,13 @@ This project is a Vue.js application using Vuetify to create a project managemen
     import { createPinia } from 'pinia';
     import App from './App.vue';
     import router from './router';
-    import vuetify from './plugins/vuetify'; // Add this line
+ 
 
     const app = createApp(App);
 
     app.use(createPinia());
     app.use(router);
-    app.use(vuetify); // Add this line
+
 
     app.mount('#app');
     ```
@@ -121,7 +121,7 @@ project-root/
     ├── routes/
     ├── config/
     ├── models/
-    ├── app.js
+    ├── .env
     └── server.js
 ```
 
