@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  name: 'Blog',
+  name: 'TopBlogs',
   data() {
     return {
       blogPosts: [
@@ -78,7 +78,7 @@ export default {
   color: #ffffff;
   border-radius: 5px;
   overflow: hidden;
-  width: calc(33.333% - 20px);
+  width: calc(33.333% - 20px); /* Initially 3 cards per row */
   position: relative;
   margin-bottom: 20px;
 }
@@ -137,5 +137,11 @@ export default {
 
 .read-more:hover {
   color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .blog-card {
+    width: 100%; /* Switch to single column on smaller screens */
+  }
 }
 </style>

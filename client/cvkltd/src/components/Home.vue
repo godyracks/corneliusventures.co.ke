@@ -7,6 +7,7 @@
     <WorkFlow />
      <OurServices />
      <Banner />
+      <TopBlogs />
     <Footer />
   </div>
 </template>
@@ -20,6 +21,7 @@ import About from "./About.vue";
 import FeaturedProjects from "./FeaturedProjects.vue";
 import OurServices  from "./OurServices.vue";
 import Banner  from "./Banner.vue";
+import TopBlogs  from "./TopBlogs.vue";
 import Footer from "./Footer.vue";
 
 export default {
@@ -31,6 +33,7 @@ export default {
     WorkFlow,
     OurServices,
     Banner,
+    TopBlogs,
     Footer,
   },
 };
