@@ -1,10 +1,10 @@
 <template>
   <div class="banner-container">
     <div class="banner-grid">
-      <div class="banner-square image-square">
+      <div class="banner-square image-square manager-image">
         <img src="@/assets/manager.jpg" alt="Manager Image" />
       </div>
-      <div class="banner-square text-square">
+      <div class="banner-square text-square mantra-text">
         <h2>Empowering Success - Our Mantra</h2>
         <ul>
           <li>High Quality Services</li>
@@ -14,7 +14,7 @@
           <li>Commitment to Excellence</li>
         </ul>
       </div>
-      <div class="banner-square text-square">
+      <div class="banner-square text-square designs-text">
         <h2>Distinctive Designs</h2>
         <ul>
           <li>Creative Concepts</li>
@@ -23,7 +23,7 @@
           <li>Modern Techniques</li>
         </ul>
       </div>
-      <div class="banner-square image-square">
+      <div class="banner-square image-square design-image">
         <img src="@/assets/interior_design.jpg" alt="Designs Image" />
       </div>
     </div>
@@ -55,6 +55,7 @@ export default {
 
 .banner-square {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: #535C68;
@@ -82,12 +83,14 @@ export default {
 .text-square ul {
   list-style-type: none;
   padding: 0;
+  margin: 0;
 }
 
 .text-square li {
   margin: 10px 0;
   padding-left: 20px;
   position: relative;
+  text-align: left;
 }
 
 .text-square li::before {
@@ -100,6 +103,22 @@ export default {
 @media (max-width: 768px) {
   .banner-grid {
     grid-template-columns: 1fr;
+  }
+
+  .manager-image {
+    order: 1;
+  }
+
+  .mantra-text {
+    order: 2;
+  }
+
+  .design-image {
+    order: 3;
+  }
+
+  .designs-text {
+    order: 4;
   }
 
   .text-square {
