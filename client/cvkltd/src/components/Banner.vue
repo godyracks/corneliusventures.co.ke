@@ -1,0 +1,109 @@
+<template>
+  <div class="banner-container">
+    <div class="banner-grid">
+      <div class="banner-square image-square">
+        <img src="@/assets/manager.jpg" alt="Manager Image" />
+      </div>
+      <div class="banner-square text-square">
+        <h2>Empowering Success - Our Mantra</h2>
+        <ul>
+          <li>High Quality Services</li>
+          <li>Customer Satisfaction</li>
+          <li>Innovative Solutions</li>
+          <li>Professional Team</li>
+          <li>Commitment to Excellence</li>
+        </ul>
+      </div>
+      <div class="banner-square text-square">
+        <h2>Distinctive Designs</h2>
+        <ul>
+          <li>Creative Concepts</li>
+          <li>Unique Styles</li>
+          <li>Attention to Detail</li>
+          <li>Modern Techniques</li>
+        </ul>
+      </div>
+      <div class="banner-square image-square">
+        <img src="@/assets/interior_design.jpg" alt="Designs Image" />
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'Banner'
+};
+</script>
+
+<style scoped>
+.banner-container {
+  background-color: #414A4C;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.banner-square {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #535C68;
+  color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.image-square img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.text-square {
+  padding: 20px;
+  text-align: center;
+}
+
+.text-square h2 {
+  margin-bottom: 10px;
+  color: orange;
+}
+
+.text-square ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.text-square li {
+  margin: 10px 0;
+  padding-left: 20px;
+  position: relative;
+}
+
+.text-square li::before {
+  content: '•';
+  color: orange;
+  position: absolute;
+  left: 0;
+}
+
+@media (max-width: 768px) {
+  .banner-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .text-square {
+    padding: 10px;
+  }
+}
+</style>

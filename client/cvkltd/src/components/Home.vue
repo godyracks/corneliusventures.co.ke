@@ -6,6 +6,7 @@
     <FeaturedProjects />
     <WorkFlow />
      <OurServices />
+     <Banner />
     <Footer />
   </div>
 </template>
@@ -18,6 +19,7 @@ import Hero from "./Hero.vue";
 import About from "./About.vue";
 import FeaturedProjects from "./FeaturedProjects.vue";
 import OurServices  from "./OurServices.vue";
+import Banner  from "./Banner.vue";
 import Footer from "./Footer.vue";
 
 export default {
@@ -27,7 +29,8 @@ export default {
     About,
     FeaturedProjects,
     WorkFlow,
-    OurServices ,
+    OurServices,
+    Banner,
     Footer,
   },
 };
