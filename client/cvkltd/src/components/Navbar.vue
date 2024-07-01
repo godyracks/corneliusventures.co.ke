@@ -68,7 +68,7 @@ export default {
   width: 100%;
   position: sticky;
   top: 0;
-  background-color: rgba(114, 160, 193, 0.8);
+  background-color: rgba(83, 92, 104, 0.8);
   z-index: 1000;
   padding: 10px 20px;
 }
