@@ -21,12 +21,12 @@ export default {
   data() {
     return {
       services: [
-        { icon: icon1, title: 'Construction Consultant', content: 'Description of service one.' },
-        { icon: icon2, title: 'Fit Outs & Renovation', content: 'Description of service two.' },
-        { icon: icon3, title: 'Steel Fabrication', content: 'Description of service three.' },
-        { icon: icon4, title: 'Civil Works', content: 'Description of service four.' },
-        { icon: icon5, title: 'General Constructing', content: 'Description of service five.' },
-        { icon: icon6, title: 'Constructing Supervision', content: 'Description of service six.' }
+        { icon: icon1, title: 'Construction Consultant', content: 'Expert guidance and consultation to ensure your construction projects are a success.' },
+        { icon: icon2, title: 'Fit Outs & Renovation', content: 'Transform your spaces with our fit-outs and renovation services, tailored to your needs.' },
+        { icon: icon3, title: 'Steel Fabrication', content: 'Precision and quality in steel fabrication for robust and durable structures.' },
+        { icon: icon4, title: 'Civil Works', content: 'Executing civil works with excellence, meeting industry standards and beyond.' },
+        { icon: icon5, title: 'General Constructing', content: 'Comprehensive solutions for general construction, ensuring quality in every aspect.' },
+        { icon: icon6, title: 'Constructing Supervision', content: 'Professional supervision throughout the construction process, ensuring efficiency and compliance.' }
       ]
     };
   }
