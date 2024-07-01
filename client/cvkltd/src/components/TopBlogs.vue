@@ -18,25 +18,28 @@
 </template>
 
 <script>
+import ImgOne from '@/assets/mansion2.jpg';
+import ImgTwo from '@/assets/mansion1.jpg';
+import ImgThree from '@/assets/mansion_under.jpg';
 export default {
   name: 'TopBlogs',
   data() {
     return {
       blogPosts: [
         {
-          imageUrl: '@/assets/mansion2.jpg',
+          imageUrl: ImgOne,
           date: '2023-12-19',
           title: 'Sample Blog Post 1',
           content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         },
         {
-          imageUrl: '@/assets/mansion1.jpg',
+          imageUrl: ImgTwo,
           date: '2023-11-15',
           title: 'Sample Blog Post 2',
           content: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.',
         },
         {
-          imageUrl: '@/assets/mansion_under.jpg',
+          imageUrl:ImgThree,
           date: '2023-10-05',
           title: 'Sample Blog Post 3',
           content: 'Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.',
