@@ -61,7 +61,7 @@ export default {
   border-radius: 10px;
   padding: 20px;
   margin: 10px;
-  flex: 1 1 calc(33.333% - 20px); /* For desktop: 3 cards per row */
+  flex: 1 1 calc(33.333% - 20px); 
   box-sizing: border-box;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -80,8 +80,9 @@ export default {
 
 .service-title {
   color: orange;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   margin-bottom: 10px;
+  font-weight: 800;
 }
 
 .service-content {
@@ -90,13 +91,13 @@ export default {
 
 @media (max-width: 1024px) {
   .service-card {
-    flex: 1 1 calc(50% - 20px); /* For tablets: 2 cards per row */
+    flex: 1 1 calc(50% - 20px); 
   }
 }
 
 @media (max-width: 768px) {
   .service-card {
-    flex: 1 1 100%; /* For mobile: 1 card per row */
+    flex: 1 1 100%; 
   }
 }
 </style>
