@@ -103,6 +103,7 @@ This project is a Vue.js application using Vuetify to create a project managemen
 To use the application, navigate to `http://localhost:5175/` in your browser. You will see the dashboard where you can upload projects by filling in the form fields and submitting them.
 
 ## Project Structure
+  ```sh
 project-root/
 │
 ├── client/          # Vue.js frontend application
@@ -122,7 +123,7 @@ project-root/
     ├── models/
     ├── app.js
     └── server.js
-
+```
 
 ## API Endpoints
 ### Get All Portfolios
