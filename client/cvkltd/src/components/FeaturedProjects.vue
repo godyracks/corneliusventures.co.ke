@@ -124,7 +124,7 @@ export default {
   flex-wrap: wrap;
   justify-content: center;
   gap: 18px;
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
 
 }
@@ -134,7 +134,7 @@ export default {
   width: calc(33.333% - 20px);
   overflow: hidden;
   opacity: 1;
-    
+    border-radius: 5px;
     height: 280px;
  
 }
