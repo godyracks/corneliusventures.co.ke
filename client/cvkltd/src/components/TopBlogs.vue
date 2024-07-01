@@ -1,6 +1,6 @@
 <template>
   <div class="blog-container">
-    <h2 class="section-title">Blog Posts</h2>
+    <h2 class="section-title">BLOG POSTS</h2>
     <div class="blog-cards">
       <div class="blog-card" v-for="(post, index) in blogPosts" :key="index">
         <div class="blog-image">
