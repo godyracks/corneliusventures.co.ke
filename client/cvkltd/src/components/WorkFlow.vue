@@ -10,20 +10,20 @@
         <h3 class="subheader">CREATING SUCCESSFUL STORIES</h3>
         <div class="steps">
           <div class="step">
-            <h4 class="step-header">Step 1</h4>
+            <h4 class="step-header">Project Initiation</h4>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
           </div>
           <div class="step">
-            <h4 class="step-header">Step 2</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <h4 class="step-header">Architect Selection</h4>
+            <p>Embark on a seamless journey with Cornelius Ventures Kenya LTD. Our projects begin with a thorough initiation phase, where we delve into your aspirations and expectations. We collaborate closely with you to lay the groundwork for an exceptional construction experience. </p>
           </div>
           <div class="step">
-            <h4 class="step-header">Step 3</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <h4 class="step-header">Building Programs</h4>
+            <p>Elevate your vision with the right architects by your side. We meticulously select architects who share our passion for innovation and excellence. Our commitment is to bring together a team that not only understands your dreams but transforms them into architectural marvels.</p>
           </div>
           <div class="step">
-            <h4 class="step-header">Step 4</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <h4 class="step-header">Finishing Construction</h4>
+            <p>Navigate your construction journey with efficiency and precision. Our building programs are meticulously crafted to ensure optimal project management. By implementing industry-leading practices, we keep projects on track, within budget, and deliver results that surpass expectations.</p>
           </div>
         </div>
       </div>
