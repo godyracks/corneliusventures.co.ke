@@ -29,7 +29,7 @@ export default {
         {
           title: 'Project Planning',
           image: projectPlanningImg,
-          content: 'At Cornelius Ventures Kenya LTD, we pride ourselves on meticulous project planning. Our dedicated team works tirelessly to ensure every detail is considered, providing comprehensive solutions tailored to meet our clients\' needs.'
+          content: 'At CVK LTD, we pride ourselves on meticulous project planning. Our dedicated team works tirelessly to ensure every detail is considered, providing comprehensive solutions tailored to meet our clients\' needs.'
         },
         {
           title: 'Recommendation Services',

@@ -1,15 +1,18 @@
 
 <template>
   <div id="app">
+      <Spinner :isLoading="isLoading" />
     <router-view></router-view>
   </div>
 </template>
 
 <script>
+import Spinner from '@/components/Spinner.vue';
 export default {
   name: 'App',
 
   components: {
+    Spinner,
     Home: () => import('./components/Home.vue'),
     Portfolio: () => import('./components/Portfolio.vue'),
     AboutUs: () => import('./components/AboutUs.vue'),
