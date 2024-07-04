@@ -107,7 +107,7 @@ export default {
   background-color: #ffffff;
   color: #000000;
   border: none;
-  padding: 10px 20px;
+  padding: 15px 30px;
   border-radius: 3px;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
