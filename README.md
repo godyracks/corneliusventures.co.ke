@@ -1,4 +1,4 @@
-# CVK Ltd Project Management Web App & Dashboard
+# CVK Ltd  Web App & Project Management Dashboard
 
 This project is a Vue.js application, a dynamic web app and  a project management dashboard . It allows admins to manage construction projects, upload project details, and images, which are stored in a MySQL database through an Express.js backend. In the MySQL Workbench database, we store image paths & images are stored in uploads folder which is iniside the server folder.
 
