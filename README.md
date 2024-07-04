@@ -63,6 +63,11 @@ project-root/
     └── server.js
 ```
 ### Initial Frontend Setup
+ Clone the repository:
+    ```sh
+    git clone https://github.com/godyracks/corneliusventures.co.ke.git
+    cd projectfolder
+    ```
 ### naviagate into  ```client/cvkltd``` folder and run the following commands in the terminal
 ```sh
 npm install
@@ -82,25 +87,19 @@ npm run build
 
 ### Backend Setup
 
-1. Clone the repository:
-    ```sh
-    git clone https://github.com/godyracks/corneliusventures.co.ke.git
-    cd projectfolder
-    ```
-
-2. Navigate to the server directory:
+1. Navigate to the server directory:
     ```sh
     cd server
     ```
 
-3. Install server dependencies:
+2. Install server dependencies:
     ```sh
     npm install
     ```
 
-4. Set up your MySQL Workbench database and update the `config/db.js` file with your database credentials.
+3. Set up your MySQL Workbench database and update the `config/db.js` file with your database credentials.
 
-5. Create a `.env` file in the server directory and add the following:
+4. Create a `.env` file in the server directory and add the following:
     ```env
     PORT=5000
     DB_HOST=localhost
@@ -109,12 +108,12 @@ npm run build
     DB_NAME=yourdatabase
     ```
 
-6. Start the server:
+5. Start the server:
     ```sh
     node server.js
     ```
 
-### Frontend Setup
+### Frontend Further Setup
 
 1. Navigate to the client directory:
     ```sh
