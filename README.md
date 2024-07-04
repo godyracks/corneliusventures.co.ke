@@ -48,13 +48,20 @@ project-root/
 │   ├── public/             # Static assets and index.html
 │   ├── src/                # Vue.js source code
 │   │   ├── components/     # Reusable and partial components
-│   │   │   ├── common/     # Common components like Navbar, Footer
+│   │   │   ├── common/     # Common components like Navbar, Footer, Spinner
 │   │   │   │   ├── Navbar.vue
-│   │   │   │   └── Footer.vue
-│   │   │   ├── partials/   # Partial components like Hero, Banner, TopBlogs
+│   │   │   │   ├── Footer.vue
+│   │   │   │   └── Spinner.vue
+│   │   │   ├── dashboardPartials/  # Dashboard-specific partials
+│   │   │   │   ├── PostBlog.vue
+│   │   │   │   ├── PostProject.vue
+│   │   │   ├── homePartials/       # Home-specific partials
 │   │   │   │   ├── Hero.vue
-│   │   │   │   ├── Banner.vue
-│   │   │   │   └── TopBlogs.vue
+│   │   │   │   ├── About.vue
+│   │   │   │   ├── FeaturedProjects.vue
+│   │   │   │   ├── OurServices.vue
+│   │   │   │   ├── TopBlogs.vue
+│   │   │   │   └── Banner.vue
 │   │   ├── views/          # Major view components
 │   │   │   ├── HomeView.vue
 │   │   │   ├── PortfolioView.vue
@@ -80,7 +87,6 @@ project-root/
     ├── models/             # Database models
     ├── .env                # Environment variables
     └── server.js           # Express server setup
-
 ```
 ### Initial Frontend Setup
  Clone the repository:
