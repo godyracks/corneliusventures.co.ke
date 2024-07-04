@@ -8,34 +8,34 @@
            @touchstart="handleTouchStart"
            @touchmove="handleTouchMove"
            @touchend="handleTouchEnd">
-        <div class="blog-card" v-for="(post, index) in blogPosts" :key="index">
+        <div class="blog-card" v-for="(post, index) in displayedBlogPosts" :key="index">
           <div class="blog-image">
             <img :src="post.imageUrl" alt="Blog Image" />
             <div class="blog-date">{{ formatDate(post.date) }}</div>
           </div>
           <div class="blog-details">
             <h3 class="blog-title">{{ post.title }}</h3>
-            <p class="blog-content">{{ post.content }}</p>
+            <p class="blog-content">{{ truncateContent(post.content) }}</p>
             <a href="#" class="read-more">Read More</a>
           </div>
         </div>
       </div>
       <div class="carousel-track" v-else>
-        <div class="blog-card" v-for="(post, index) in blogPosts" :key="index">
+        <div class="blog-card" v-for="(post, index) in displayedBlogPosts" :key="index">
           <div class="blog-image">
             <img :src="post.imageUrl" alt="Blog Image" />
             <div class="blog-date">{{ formatDate(post.date) }}</div>
           </div>
           <div class="blog-details">
             <h3 class="blog-title">{{ post.title }}</h3>
-            <p class="blog-content">{{ post.content }}</p>
+            <p class="blog-content">{{ truncateContent(post.content) }}</p>
             <a href="#" class="read-more">Read More</a>
           </div>
         </div>
       </div>
       <div class="carousel-dots" v-if="isMobile">
         <span
-          v-for="(post, index) in blogPosts"
+          v-for="(post, index) in displayedBlogPosts"
           :key="index"
           :class="{ active: index === currentIndex }"
           @click="setCurrentIndex(index)"
@@ -46,34 +46,14 @@
 </template>
 
 <script>
-import ImgOne from '@/assets/mansion2.jpg';
-import ImgTwo from '@/assets/mansion1.jpg';
-import ImgThree from '@/assets/mansion_under.jpg';
+import axios from 'axios';
 
 export default {
   name: 'TopBlogs',
   data() {
     return {
-      blogPosts: [
-        {
-          imageUrl: ImgOne,
-          date: '2023-12-19',
-          title: 'Sample Blog Post 1',
-          content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        },
-        {
-          imageUrl: ImgTwo,
-          date: '2023-11-15',
-          title: 'Sample Blog Post 2',
-          content: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.',
-        },
-        {
-          imageUrl: ImgThree,
-          date: '2023-10-05',
-          title: 'Sample Blog Post 3',
-          content: 'Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.',
-        },
-      ],
+      blogPosts: [],
+      displayedBlogPosts: [],
       currentIndex: 0,
       startX: 0,
       isMobile: window.innerWidth <= 768,
@@ -94,8 +74,24 @@ export default {
       const options = { month: 'short', day: 'numeric', year: 'numeric' };
       return new Date(dateString).toLocaleDateString('en-US', options);
     },
+    truncateContent(content) {
+      if (!content) return ''; // Handle undefined or null content
+
+      // Split content into words and limit to 20 words
+      const words = content.split(' ').slice(0, 20).join(' ');
+      return `${words}...`;
+    },
     setCurrentIndex(index) {
       this.currentIndex = index;
+    },
+    async fetchBlogPosts() {
+      try {
+        const response = await axios.get('/api/blogs', { params: { limit: 3 } });
+        this.blogPosts = response.data;
+        this.displayedBlogPosts = this.blogPosts; // Initially display all fetched posts
+      } catch (error) {
+        console.error('Error fetching blog posts:', error);
+      }
     },
     handleResize() {
       this.isMobile = window.innerWidth <= 768;
@@ -116,7 +112,7 @@ export default {
       const currentX = event.changedTouches[0].clientX;
       const diff = this.startX - currentX;
 
-      if (diff > 50 && this.currentIndex < this.blogPosts.length - 1) {
+      if (diff > 50 && this.currentIndex < this.displayedBlogPosts.length - 1) {
         this.currentIndex++;
       } else if (diff < -50 && this.currentIndex > 0) {
         this.currentIndex--;
@@ -125,20 +121,14 @@ export default {
   },
   mounted() {
     window.addEventListener('resize', this.handleResize);
-
-    if (!this.isMobile) {
-      this.$refs.carousel.addEventListener('wheel', this.handleScroll);
-    }
+    this.fetchBlogPosts(); // Fetch blog posts on component mount
   },
   beforeDestroy() {
     window.removeEventListener('resize', this.handleResize);
-
-    if (!this.isMobile) {
-      this.$refs.carousel.removeEventListener('wheel', this.handleScroll);
-    }
   },
 };
 </script>
+
 
 <style scoped>
 .blog-container {
