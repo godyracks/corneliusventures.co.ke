@@ -30,6 +30,8 @@
       </div>
       <button type="submit">Submit</button>
     </form>
+    <!-- Button to navigate to the blog post creation page -->
+    <button @click="navigateToCreateBlog">Create a New Blog Post</button>
   </div>
 </template>
 

@@ -11,6 +11,7 @@ const authRoutes = require('./routes/authRoutes');
 const serviceRoutes = require('./routes/serviceRoutes');
 const userRoutes = require('./routes/userRoutes');
 const portfolioRoutes = require('./routes/portfolioRoutes');
+const blogRoutes = require('./routes/blogRoutes');
 const portfolioController = require('./controllers/portfolioController');
 const blogController = require('./controllers/blogController');
 
