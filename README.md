@@ -24,7 +24,7 @@ This project is a Vue.js application, a dynamic web app and  a project managemen
 ### Prerequisites
 - Node.js and npm
 - MySQL Workbench
--Internet connection
+- Internet connection
 - Git
 
 # cvkltd
