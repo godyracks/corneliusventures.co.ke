@@ -1,45 +1,51 @@
 <template>
-  <div>
-       <Navbar /> 
-    <h1>Dashboard - Upload Project</h1>
+  <div class="dashboard-container">
+    <Navbar />
+     <h1>Dashboard - Upload Project</h1> 
+     <!-- Button to navigate to the blog post creation page -->
+    <button @click="navigateToCreateBlog" class="create-blog-button">Create a New Blog Post</button>
+      <div class="form-container">
+   
 
     <form @submit.prevent="submitForm" enctype="multipart/form-data">
-      <div>
+      <div class="form-group">
         <label>Name:</label>
         <input v-model="name" type="text" placeholder="Enter name">
       </div>
-      <div>
+      <div class="form-group">
         <label>Description:</label>
         <textarea v-model="description" placeholder="Enter description"></textarea>
       </div>
-      <div>
+      <div class="form-group">
         <label>Image Upload:</label>
         <input type="file" name="image" @change="handleFileUpload">
       </div>
-      <div>
+      <div class="form-group">
         <label>Start Date:</label>
         <input v-model="startDate" type="date">
       </div>
-      <div>
+      <div class="form-group">
         <label>Complete Date:</label>
         <input v-model="completeDate" type="date">
       </div>
-      <div>
+      <div class="form-group">
         <label>Status:</label>
-        <input v-model="status" type="text" placeholder="Enter status (ongoing/completed)">
+        <input v-model="status" type="text" placeholder="Enter status (ongoing/completed/not started)">
       </div>
-      <button type="submit">Submit</button>
+      <button type="submit" class="submit-button">Submit</button>
     </form>
-    <!-- Button to navigate to the blog post creation page -->
-    <button @click="navigateToCreateBlog">Create a New Blog Post</button>
+
+   
+      </div>
   </div>
 </template>
 
 <script>
 import axios from 'axios';
 import Navbar from './Navbar.vue';
+
 export default {
-    components: {
+  components: {
     Navbar // Register Navbar component
   },
   data() {
@@ -82,7 +88,7 @@ export default {
         console.error('Error uploading project:', error);
       }
     },
-     navigateToCreateBlog() {
+    navigateToCreateBlog() {
       this.$router.push('/create-a-new-blog-post');
     }
   }
@@ -90,6 +96,74 @@ export default {
 </script>
 
 <style scoped>
-/* Component-specific styles */
-/* Add your component-specific styles here */
+
+.dashboard-container {
+background-color: #2C2C2C; 
+  color: #FFFFFF; 
+  width: 100%;
+  margin: 0 auto;
+}
+
+.form-container {
+  background-color: #535151; 
+  color: #FFFFFF; 
+max-width: 600px;
+padding: 20px;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="date"],
+textarea,
+input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #444;
+  background-color: #3C3C3C;
+  color: #FFFFFF;
+}
+
+input[type="text"]::placeholder,
+textarea::placeholder,
+input[type="date"]::placeholder {
+  color: #AAAAAA;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.submit-button,
+.create-blog-button {
+  background-color: #444;
+  color: #FFFFFF;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover,
+.create-blog-button:hover {
+  background-color: #555;
+}
 </style>
