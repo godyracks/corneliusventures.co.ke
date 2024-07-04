@@ -61,6 +61,7 @@ export default {
   background-color: #2C3335;
   padding: 50px 20px;
   text-align: center;
+ 
 }
 
 .section-title {
@@ -73,7 +74,10 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center ;
   gap: 20px;
+   max-width: 1000px;
+   margin: 0 auto;
 }
 
 .blog-card {
@@ -84,6 +88,8 @@ export default {
   width: calc(33.333% - 20px); /* Initially 3 cards per row */
   position: relative;
   margin-bottom: 20px;
+  max-width: 250px;
+  height: 350px;
 }
 
 .blog-image {
