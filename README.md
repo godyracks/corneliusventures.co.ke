@@ -44,7 +44,7 @@ See [Vite Configuration Reference](https://vitejs.dev/config/).
   ```sh
 project-root/
 │
-├── client/          # Vue.js frontend application
+├── client/cvkltd/          # Vue.js frontend application
 │   ├── public/
 │   └── src/
 │       ├── assets/
