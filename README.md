@@ -16,7 +16,7 @@ This project is a Vue.js application, a dynamic web app and  a project managemen
 - Upload project details including title, description, start date, complete date, and status.
 - Upload project images.
 - Display projects in a portfolio, frontend.
-- Responsive design using Vuetify.
+- Responsive design using Vite.
 - Backend API for managing projects with MySQL database.
 
 ## Installation
