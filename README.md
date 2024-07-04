@@ -207,4 +207,6 @@ CREATE TABLE blog (
 Contributions are welcome! Please fork the repository and create a pull request with your changes. LEAVE A STAR TO KEEP ME MOTIVATED AT LEAST. Thank You!
 
 ## License
-This project is open-source hence no need for licensing.
+
+This project is under the MIT License. See the [LICENSE](https://github.com/godyracks/corneliusventures.co.ke/blob/master/LICENSE) file for more details.
+
