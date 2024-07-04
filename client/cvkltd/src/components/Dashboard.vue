@@ -81,6 +81,9 @@ export default {
       } catch (error) {
         console.error('Error uploading project:', error);
       }
+    },
+     navigateToCreateBlog() {
+      this.$router.push('/create-a-new-blog-post');
     }
   }
 };
