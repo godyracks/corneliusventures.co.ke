@@ -64,15 +64,43 @@ project-root/
 ```
 ### Initial Frontend Setup
  Clone the repository:
- 
+
 ```sh
  git clone https://github.com/godyracks/corneliusventures.co.ke.git
 cd projectfolder
 ```
 
-### naviagate into  ```client/cvkltd``` folder and run the following commands in the terminal
+### naviagate into  ```client/cvkltd``` folder 
+  ```sh
+    cd client/cvkltd
+    ``` 
+  
+
 ```sh
 npm install
+```
+Install Vite to  allow us to use Vue Single-File Components (SFCs):
+
+    ```sh
+    npm create vue@latest
+    ```
+
+     Add this to your `main.js` file:
+```js
+    import './assets/main.css'
+
+    import { createApp } from 'vue';
+    import { createPinia } from 'pinia';
+
+    import App from './App.vue';
+    import router from './router';
+
+    const app = createApp(App);
+
+    app.use(createPinia());
+    app.use(router);
+
+    app.mount('#app');
 ```
 
 ### Compile and Hot-Reload for Development
@@ -86,6 +114,11 @@ npm run dev
 ```sh
 npm run build
 ```
+
+
+## Usage
+To use the application, navigate to `http://localhost:5173/dashboard`  in your browser after running ```sh npm run dev ``` in your terminal inside the client/cvkltd directory.  You will see the dashboard where you can upload projects by filling in the form fields and submitting them.
+
 
 ### Backend Setup
 
@@ -114,49 +147,6 @@ npm run build
     ```sh
     node server.js
     ```
-
-### Frontend Further Setup
-
-1. Navigate to the client directory:
-    ```sh
-    cd client/cvkltd
-    ```
-
-2. Install client dependencies:
-    ```sh
-    npm install
-    ```
-
-3. Install Vite to  allow us to use Vue Single-File Components (SFCs):
-    ```sh
-    npm create vue@latest
-    ```
-
-4. Add this to your `main.js` file:
-    ```js
-  import './assets/main.css'
-
-    import { createApp } from 'vue';
-    import { createPinia } from 'pinia';
-
-    import App from './App.vue';
-    import router from './router';
-
-    const app = createApp(App);
-
-    app.use(createPinia());
-    app.use(router);
-
-    app.mount('#app');
-```
-
-5. Start the client:
-    ```sh
-    npm run dev
-    ```
-
-## Usage
-To use the application, navigate to `http://localhost:5173/dashboard`  in your browser after running ```sh npm run dev ``` in your terminal inside the client/cvkltd directory.  You will see the dashboard where you can upload projects by filling in the form fields and submitting them.
 
 
 
