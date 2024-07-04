@@ -31,7 +31,7 @@ export default {
 <style scoped>
 .contact-container {
   height: 480px;
-  background-color: #252222d2; 
+  background-color: #414A4C; 
   color: #ffffff;
   text-align: center;
   padding: 20px;
