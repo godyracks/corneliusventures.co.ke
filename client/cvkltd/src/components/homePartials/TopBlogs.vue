@@ -1,17 +1,45 @@
 <template>
   <div class="blog-container">
     <h2 class="section-title">BLOG POSTS</h2>
-    <div class="blog-cards">
-      <div class="blog-card" v-for="(post, index) in blogPosts" :key="index">
-        <div class="blog-image">
-          <img :src="post.imageUrl" alt="Blog Image" />
-          <div class="blog-date">{{ formatDate(post.date) }}</div>
+    <div class="carousel-container" ref="carousel">
+      <div class="carousel-track" 
+           :style="trackStyle"
+           v-if="!isDesktop"
+           @touchstart="handleTouchStart"
+           @touchmove="handleTouchMove"
+           @touchend="handleTouchEnd">
+        <div class="blog-card" v-for="(post, index) in blogPosts" :key="index">
+          <div class="blog-image">
+            <img :src="post.imageUrl" alt="Blog Image" />
+            <div class="blog-date">{{ formatDate(post.date) }}</div>
+          </div>
+          <div class="blog-details">
+            <h3 class="blog-title">{{ post.title }}</h3>
+            <p class="blog-content">{{ post.content }}</p>
+            <a href="#" class="read-more">Read More</a>
+          </div>
         </div>
-        <div class="blog-details">
-          <h3 class="blog-title">{{ post.title }}</h3>
-          <p class="blog-content">{{ post.content }}</p>
-          <a href="#" class="read-more">Read More</a>
+      </div>
+      <div class="carousel-track" v-else>
+        <div class="blog-card" v-for="(post, index) in blogPosts" :key="index">
+          <div class="blog-image">
+            <img :src="post.imageUrl" alt="Blog Image" />
+            <div class="blog-date">{{ formatDate(post.date) }}</div>
+          </div>
+          <div class="blog-details">
+            <h3 class="blog-title">{{ post.title }}</h3>
+            <p class="blog-content">{{ post.content }}</p>
+            <a href="#" class="read-more">Read More</a>
+          </div>
         </div>
+      </div>
+      <div class="carousel-dots" v-if="isMobile">
+        <span
+          v-for="(post, index) in blogPosts"
+          :key="index"
+          :class="{ active: index === currentIndex }"
+          @click="setCurrentIndex(index)"
+        ></span>
       </div>
     </div>
   </div>
@@ -21,6 +49,7 @@
 import ImgOne from '@/assets/mansion2.jpg';
 import ImgTwo from '@/assets/mansion1.jpg';
 import ImgThree from '@/assets/mansion_under.jpg';
+
 export default {
   name: 'TopBlogs',
   data() {
@@ -39,20 +68,75 @@ export default {
           content: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.',
         },
         {
-          imageUrl:ImgThree,
+          imageUrl: ImgThree,
           date: '2023-10-05',
           title: 'Sample Blog Post 3',
           content: 'Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.',
-        }
-      ]
+        },
+      ],
+      currentIndex: 0,
+      startX: 0,
+      isMobile: window.innerWidth <= 768,
+      isDesktop: window.innerWidth > 768,
+      trackStyle: { transform: 'translateX(0%)' },
     };
+  },
+  computed: {
+    trackStyle() {
+      return {
+        transform: `translateX(-${this.currentIndex * (this.isDesktop ? 100 : 100)}%)`,
+        transition: 'transform 0.5s ease',
+      };
+    },
   },
   methods: {
     formatDate(dateString) {
       const options = { month: 'short', day: 'numeric', year: 'numeric' };
       return new Date(dateString).toLocaleDateString('en-US', options);
+    },
+    setCurrentIndex(index) {
+      this.currentIndex = index;
+    },
+    handleResize() {
+      this.isMobile = window.innerWidth <= 768;
+      this.isDesktop = window.innerWidth > 768;
+    },
+    handleTouchStart(event) {
+      this.startX = event.touches[0].clientX;
+    },
+    handleTouchMove(event) {
+      const currentX = event.touches[0].clientX;
+      const diff = this.startX - currentX;
+
+      if (Math.abs(diff) > 10) {
+        event.preventDefault();
+      }
+    },
+    handleTouchEnd(event) {
+      const currentX = event.changedTouches[0].clientX;
+      const diff = this.startX - currentX;
+
+      if (diff > 50 && this.currentIndex < this.blogPosts.length - 1) {
+        this.currentIndex++;
+      } else if (diff < -50 && this.currentIndex > 0) {
+        this.currentIndex--;
+      }
+    },
+  },
+  mounted() {
+    window.addEventListener('resize', this.handleResize);
+
+    if (!this.isMobile) {
+      this.$refs.carousel.addEventListener('wheel', this.handleScroll);
     }
-  }
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.handleResize);
+
+    if (!this.isMobile) {
+      this.$refs.carousel.removeEventListener('wheel', this.handleScroll);
+    }
+  },
 };
 </script>
 
@@ -61,7 +145,6 @@ export default {
   background-color: #2C3335;
   padding: 50px 20px;
   text-align: center;
- 
 }
 
 .section-title {
@@ -70,32 +153,35 @@ export default {
   margin-bottom: 20px;
 }
 
-.blog-cards {
+.carousel-container {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.carousel-track {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center ;
-  gap: 20px;
-   max-width: 1000px;
-   margin: 0 auto;
+  transition: transform 0.5s ease;
 }
 
 .blog-card {
   background-color: #535C68;
   color: #ffffff;
-  border-radius: 5px;
+  border-radius: 8px;
+  border-bottom: 1px solid orange;
   overflow: hidden;
-  width: calc(33.333% - 20px); /* Initially 3 cards per row */
+  flex: 0 0 100%;
+  max-width: 290px;
+  height: 400px;
   position: relative;
-  margin-bottom: 20px;
-  max-width: 250px;
-  height: 350px;
+  margin: 10px;
 }
 
 .blog-image {
   position: relative;
   height: 0;
-  padding-top: 50%;
+  padding-top: 80%;
 }
 
 .blog-image img {
@@ -130,7 +216,7 @@ export default {
 .blog-content {
   font-size: 1rem;
   line-height: 1.4;
-  max-height: 2.8em; /* Limit content to 4 lines */
+  max-height: 2.8em;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -148,9 +234,38 @@ export default {
   color: #ffffff;
 }
 
-@media (max-width: 768px) {
+.carousel-dots {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.carousel-dots span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  background-color: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.carousel-dots span.active {
+  background-color: orange;
+}
+
+@media (min-width: 768px) {
+  .carousel-track {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
   .blog-card {
-    width: 100%; /* Switch to single column on smaller screens */
+    flex: 0 0 calc(33.333% - 20px);
+    margin: 10px;
+  }
+
+  .carousel-dots {
+    display: none;
   }
 }
 </style>
