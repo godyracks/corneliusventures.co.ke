@@ -85,6 +85,7 @@ project-root/
     ├── routes/             # API routes
     ├── config/             # Configuration files (e.g., database configuration)
     ├── models/             # Database models
+    ├── uploads/            # Folder for uploaded files
     ├── .env                # Environment variables
     └── server.js           # Express server setup
 ```
