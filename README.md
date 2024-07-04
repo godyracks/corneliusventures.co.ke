@@ -151,6 +151,20 @@ in your terminal inside the client/cvkltd directory.  You will see the dashboard
     ```sh
     node server.js
     ```
+    ### SQL tables structure
+```sh
+CREATE TABLE projects (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    description TEXT,
+    image1_url VARCHAR(255),
+    start_date DATE,
+    complete_date DATE,
+    status ENUM('not started', 'in progress', 'completed') NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+```
 
 
 
