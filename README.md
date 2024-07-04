@@ -194,4 +194,4 @@ CREATE TABLE projects (
 Contributions are welcome! Please fork the repository and create a pull request with your changes.
 
 ## License
-This project is open-source hence no need for licencing.
+This project is open-source hence no need for licensing.
