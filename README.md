@@ -6,8 +6,8 @@ This project is a Vue.js application, a dynamic web app and  a project managemen
 ## Table of Contents
 - [Features](#features)
 - [Installation](#installation)
-- [Usage](#usage)
 - [Project Structure](#project-structure)
+- [Usage](#usage)
 - [API Endpoints](#api-endpoints)
 - [Contributing](#contributing)
 - [License](#license)
@@ -40,6 +40,28 @@ This template should help get you started developing with Vue 3 in Vite.
 See [Vite Configuration Reference](https://vitejs.dev/config/).
 
 ## Project Setup
+## Project Structure
+  ```sh
+project-root/
+│
+├── client/          # Vue.js frontend application
+│   ├── public/
+│   └── src/
+│       ├── assets/
+│       ├── components/
+│       ├── views/
+│       ├── App.vue
+│       └── main.js
+│
+└── server/          # Node.js Express backend
+    ├── controllers/
+    ├── middleware/
+    ├── routes/
+    ├── config/
+    ├── models/
+    ├── .env
+    └── server.js
+```
 
 ```sh
 npm install
@@ -112,19 +134,19 @@ npm run build
     ```js
   import './assets/main.css'
 
-import { createApp } from 'vue';
-import { createPinia } from 'pinia';
+    import { createApp } from 'vue';
+    import { createPinia } from 'pinia';
 
-import App from './App.vue';
-import router from './router';
+    import App from './App.vue';
+    import router from './router';
 
-const app = createApp(App);
+    const app = createApp(App);
 
-app.use(createPinia());
-app.use(router);
+    app.use(createPinia());
+    app.use(router);
 
-app.mount('#app');
-    ```
+    app.mount('#app');
+```
 
 5. Start the client:
     ```sh
@@ -134,28 +156,7 @@ app.mount('#app');
 ## Usage
 To use the application, navigate to `http://localhost:5173/dashboard`  in your browser after running ```sh npm run dev ``` in your terminal inside the client/cvkltd directory.  You will see the dashboard where you can upload projects by filling in the form fields and submitting them.
 
-## Project Structure
-  ```sh
-project-root/
-│
-├── client/          # Vue.js frontend application
-│   ├── public/
-│   └── src/
-│       ├── assets/
-│       ├── components/
-│       ├── views/
-│       ├── App.vue
-│       └── main.js
-│
-└── server/          # Node.js Express backend
-    ├── controllers/
-    ├── middleware/
-    ├── routes/
-    ├── config/
-    ├── models/
-    ├── .env
-    └── server.js
-```
+
 
 ## API Endpoints
 ### Get All Portfolios
