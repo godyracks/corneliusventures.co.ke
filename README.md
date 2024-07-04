@@ -117,7 +117,11 @@ npm run build
 
 
 ## Usage
-To use the application, navigate to `http://localhost:5173/dashboard`  in your browser after running ```sh npm run dev ``` in your terminal inside the client/cvkltd directory.  You will see the dashboard where you can upload projects by filling in the form fields and submitting them.
+To use the application, navigate to `http://localhost:5173/dashboard`  in your browser after running :
+```sh 
+npm run dev 
+``` 
+in your terminal inside the client/cvkltd directory.  You will see the dashboard where you can upload projects by filling in the form fields and submitting them.
 
 
 ### Backend Setup
