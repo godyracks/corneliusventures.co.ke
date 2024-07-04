@@ -2,6 +2,7 @@
 import Navbar from '../components/common/Navbar.vue'
 import Hero from '../components/homePartials/Hero.vue'
 import About from '../components/homePartials/About.vue'
+import Briefing from '../components/homePartials/Briefing.vue'
 import Featured from '../components/homePartials/FeaturedProjects.vue'
 import WorkFlow from '../components/homePartials/WorkFlow.vue'
 import ServicesHighlights from '../components/homePartials/OurServices.vue'
@@ -20,6 +21,7 @@ import Footer from '../components/common/Footer.vue'
     <ServicesHighlights />
     <Banner />
       <TopBlogs />
+      <Briefing />
     <Footer />
   </main>
 </template>
