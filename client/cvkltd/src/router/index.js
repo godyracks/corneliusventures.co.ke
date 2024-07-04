@@ -8,6 +8,7 @@ import Services from '../components/Services.vue';
 import Blog from '../components/Blog.vue';
 import GetAQuote from '../components/GetAQuote.vue';
 import Dashboard from '../components/Dashboard.vue';
+import PostBlogs from '../components/PostBlogs.vue';
 
 const routes = [
   { path: '/', component: Home },
@@ -18,6 +19,7 @@ const routes = [
   { path: '/blog', component: Blog },
   { path: '/get-a-quote', component: GetAQuote },
   { path: '/dashboard', component: Dashboard },
+  { path: '/create-a-new-blog-post', component: PostBlogs },
 ];
 
 const router = createRouter({

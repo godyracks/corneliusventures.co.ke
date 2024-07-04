@@ -21,6 +21,7 @@ export default {
     Blog: () => import('./components/Blog.vue'),
     GetAQuote: () => import('./components/GetAQuote.vue'),
     Dashboard: () => import('./components/Dashboard.vue'),
+    PostBlogs: () => import('./components/PostBlogs.vue'),
   }
 }
 </script>
