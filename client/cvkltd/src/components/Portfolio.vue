@@ -11,16 +11,19 @@
       <p v-if="project.complete_date">Complete Date: {{ formatDate(project.complete_date) }}</p>
       <p>Status: {{ project.status }}</p>
     </div>
+    <Footer />
   </div>
 </template>
 
 <script>
 import axios from 'axios';
 import Navbar from './Navbar.vue'; 
+import Footer from "./Footer.vue";
 
 export default {
   components: {
-    Navbar // Register Navbar component
+    Navbar,
+    Footer
   },
   data() {
     return {
