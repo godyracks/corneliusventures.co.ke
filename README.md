@@ -66,14 +66,14 @@ project-root/
  Clone the repository:
 
 ```sh
- git clone https://github.com/godyracks/corneliusventures.co.ke.git
+git clone https://github.com/godyracks/corneliusventures.co.ke.git
 cd projectfolder
 ```
 
 ### naviagate into  ```client/cvkltd``` folder 
-  ```sh
-    cd client/cvkltd
-    ``` 
+```sh
+cd client/cvkltd
+ ``` 
   
 
 ```sh
@@ -81,11 +81,11 @@ npm install
 ```
 Install Vite to  allow us to use Vue Single-File Components (SFCs):
 
-    ```sh
-    npm create vue@latest
-    ```
+ ```sh
+npm create vue@latest
+ ```
 
-     Add this to your `main.js` file:
+Add this to your `main.js` file:
 ```js
     import './assets/main.css'
 
