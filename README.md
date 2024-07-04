@@ -1,6 +1,6 @@
-# CVK Ltd Project Management Dashboard & Web App
+# CVK Ltd Project Management Web App & Dashboard
 
-This project is a Vue.js application, a project management dashboard and a dynamic web app. It allows users to manage construction projects, upload project details, and images, which are stored in a MySQL database through an Express.js backend.
+This project is a Vue.js application, a dynamic web app and  a project management dashboard . It allows admins to manage construction projects, upload project details, and images, which are stored in a MySQL database through an Express.js backend. In the MySQL Workbench database, we store image paths & images are stored in uploads folder which is iniside the server folder.
 
 
 ## Table of Contents
@@ -15,7 +15,7 @@ This project is a Vue.js application, a project management dashboard and a dynam
 ## Features
 - Upload project details including title, description, start date, complete date, and status.
 - Upload project images.
-- Display projects in a portfolio.
+- Display projects in a portfolio, frontend.
 - Responsive design using Vuetify.
 - Backend API for managing projects with MySQL database.
 
@@ -23,8 +23,39 @@ This project is a Vue.js application, a project management dashboard and a dynam
 
 ### Prerequisites
 - Node.js and npm
-- MySQL
+- MySQL Workbench
+-Internet connection
 - Git
+
+# cvkltd
+
+This template should help get you started developing with Vue 3 in Vite.
+
+## Recommended IDE  & Frontend Setup
+
+[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+
+## Customize configuration
+
+See [Vite Configuration Reference](https://vitejs.dev/config/).
+
+## Project Setup
+
+```sh
+npm install
+```
+
+### Compile and Hot-Reload for Development
+
+```sh
+npm run dev
+```
+
+### Compile and Minify for Production
+
+```sh
+npm run build
+```
 
 ### Backend Setup
 
@@ -44,7 +75,7 @@ This project is a Vue.js application, a project management dashboard and a dynam
     npm install
     ```
 
-4. Set up your MySQL database and update the `config/db.js` file with your database credentials.
+4. Set up your MySQL Workbench database and update the `config/db.js` file with your database credentials.
 
 5. Create a `.env` file in the server directory and add the following:
     ```env
@@ -57,7 +88,7 @@ This project is a Vue.js application, a project management dashboard and a dynam
 
 6. Start the server:
     ```sh
-    npm start
+    node server.js
     ```
 
 ### Frontend Setup
@@ -72,26 +103,27 @@ This project is a Vue.js application, a project management dashboard and a dynam
     npm install
     ```
 
-3. Install Vuetify:
+3. Install Vite to  allow us to use Vue Single-File Components (SFCs):
     ```sh
-    npm install vuetify@next
+    npm create vue@latest
     ```
 
-4. Add Vuetify to your `main.js` file:
+4. Add this to your `main.js` file:
     ```js
-    import { createApp } from 'vue';
-    import { createPinia } from 'pinia';
-    import App from './App.vue';
-    import router from './router';
- 
+  import './assets/main.css'
 
-    const app = createApp(App);
+import { createApp } from 'vue';
+import { createPinia } from 'pinia';
 
-    app.use(createPinia());
-    app.use(router);
+import App from './App.vue';
+import router from './router';
 
+const app = createApp(App);
 
-    app.mount('#app');
+app.use(createPinia());
+app.use(router);
+
+app.mount('#app');
     ```
 
 5. Start the client:
@@ -100,7 +132,7 @@ This project is a Vue.js application, a project management dashboard and a dynam
     ```
 
 ## Usage
-To use the application, navigate to `http://localhost:5175/` in your browser. You will see the dashboard where you can upload projects by filling in the form fields and submitting them.
+To use the application, navigate to `http://localhost:5173/dashboard`  in your browser after running ```sh npm run dev ``` in your terminal inside the client/cvkltd directory.  You will see the dashboard where you can upload projects by filling in the form fields and submitting them.
 
 ## Project Structure
   ```sh
@@ -151,4 +183,4 @@ project-root/
 Contributions are welcome! Please fork the repository and create a pull request with your changes.
 
 ## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is open-source hence no need for licencing.
