@@ -12,6 +12,7 @@ const serviceRoutes = require('./routes/serviceRoutes');
 const userRoutes = require('./routes/userRoutes');
 const portfolioRoutes = require('./routes/portfolioRoutes');
 const portfolioController = require('./controllers/portfolioController');
+const blogController = require('./controllers/blogController');
 
 dotenv.config();
 
@@ -60,6 +61,7 @@ app.use('/api/users', userRoutes);
 app.use('/api/services', serviceRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/portfolio', portfolioRoutes);
+app.use('/api/blogs', blogRoutes);
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 const PORT = process.env.PORT || 8080;

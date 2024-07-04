@@ -204,7 +204,7 @@ CREATE TABLE blog (
 - **Response**: JSON object of the created project.
 
 ## Contributing
-Contributions are welcome! Please fork the repository and create a pull request with your changes.
+Contributions are welcome! Please fork the repository and create a pull request with your changes. LEAVE A STAR TO KEEP ME MOTIVATED AT LEAST. Thank You!
 
 ## License
 This project is open-source hence no need for licensing.
