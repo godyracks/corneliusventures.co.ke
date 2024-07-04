@@ -63,7 +63,7 @@ project-root/
     └── server.js
 ```
 ### Initial Frontend Setup
-# naviagate into  client/cvkltd folder and runmthe following commands in the terminal
+### naviagate into  ```client/cvkltd``` folder and run the following commands in the terminal
 ```sh
 npm install
 ```
