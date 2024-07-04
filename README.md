@@ -117,7 +117,7 @@ npm run build
 
 
 ## Usage
-To use the application, navigate to `http://localhost:5173/dashboard`  in your browser after running :
+To use the application, navigate to `http://localhost:5173/dashboard`  in your browser after running : `http://localhost:5173/create-a-new-blog-post` for posting blogs!
 ```sh 
 npm run dev 
 ``` 
