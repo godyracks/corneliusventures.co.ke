@@ -8,6 +8,8 @@ import WorkFlow from '../components/homePartials/WorkFlow.vue'
 import ServicesHighlights from '../components/homePartials/OurServices.vue'
 import Banner from '../components/homePartials/Banner.vue'
 import TopBlogs from '../components/homePartials/TopBlogs.vue'
+import Contact from '../components/homePartials/ContactUs.vue'
+import Map from '../components/homePartials/GoogleMap.vue'
 import Footer from '../components/common/Footer.vue'
 </script>
 
@@ -22,6 +24,8 @@ import Footer from '../components/common/Footer.vue'
     <Banner />
       <TopBlogs />
       <Briefing />
+      <Contact />
+          <Map />
     <Footer />
   </main>
 </template>
