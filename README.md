@@ -64,10 +64,12 @@ project-root/
 ```
 ### Initial Frontend Setup
  Clone the repository:
-    ```sh
-    git clone https://github.com/godyracks/corneliusventures.co.ke.git
-    cd projectfolder
-    ```
+ 
+```sh
+ git clone https://github.com/godyracks/corneliusventures.co.ke.git
+cd projectfolder
+```
+
 ### naviagate into  ```client/cvkltd``` folder and run the following commands in the terminal
 ```sh
 npm install
