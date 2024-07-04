@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Navbar /> 
+  
 
     <h1>Portfolio</h1>
     <div v-for="project in projects" :key="project.id" class="project-card">
@@ -11,20 +11,15 @@
       <p v-if="project.complete_date">Complete Date: {{ formatDate(project.complete_date) }}</p>
       <p>Status: {{ project.status }}</p>
     </div>
-    <Footer />
+ 
   </div>
 </template>
-
 <script>
 import axios from 'axios';
-import Navbar from './Navbar.vue'; 
-import Footer from "./Footer.vue";
+
 
 export default {
-  components: {
-    Navbar,
-    Footer
-  },
+
   data() {
     return {
       projects: []

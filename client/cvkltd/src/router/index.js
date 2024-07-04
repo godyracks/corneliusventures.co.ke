@@ -1,15 +1,22 @@
 // src/router/index.js
-import { createRouter, createWebHistory } from 'vue-router';
-import Home from '../components/Home.vue';
-import Portfolio from '../components/Portfolio.vue';
-import AboutUs from '../components/AboutUs.vue';
-import ContactUs from '../components/ContactUs.vue';
-import Services from '../components/Services.vue';
-import Blog from '../components/Blog.vue';
-import GetAQuote from '../components/GetAQuote.vue';
-import Dashboard from '../components/Dashboard.vue';
-import PostBlogs from '../components/PostBlogs.vue';
 
+import { createRouter, createWebHistory } from 'vue-router';
+import Home from '../views/HomeView.vue';
+import Portfolio from '../views/PortfolioView.vue';
+import AboutUs from '../views/AboutUsView.vue';
+import ContactUs from '../views/ContactUsView.vue';
+import Services from '../views/ServicesView.vue';
+import Blog from '../views/BlogView.vue';
+import GetAQuote from '../views/GetAQuoteView.vue';
+import Dashboard from '../views/DashboardView.vue';
+import PostBlogs from '../views/PostBlogsView.vue';
+
+
+// const routes = [
+//   { path: '/', components: { default: Home, navbar: Navbar, footer: Footer } },
+//   { path: '/portfolio', components: { default: Portfolio, navbar: Navbar, footer: Footer } },
+
+// ];
 const routes = [
   { path: '/', component: Home },
   { path: '/portfolio', component: Portfolio },

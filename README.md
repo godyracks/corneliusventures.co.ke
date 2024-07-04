@@ -45,22 +45,42 @@ See [Vite Configuration Reference](https://vitejs.dev/config/).
 project-root/
 │
 ├── client/cvkltd/          # Vue.js frontend application
-│   ├── public/
-│   └── src/
-│       ├── assets/
-│       ├── components/
-│       ├── views/
-│       ├── App.vue
-│       └── main.js
+│   ├── public/             # Static assets and index.html
+│   ├── src/                # Vue.js source code
+│   │   ├── components/     # Reusable and partial components
+│   │   │   ├── common/     # Common components like Navbar, Footer
+│   │   │   │   ├── Navbar.vue
+│   │   │   │   └── Footer.vue
+│   │   │   ├── partials/   # Partial components like Hero, Banner, TopBlogs
+│   │   │   │   ├── Hero.vue
+│   │   │   │   ├── Banner.vue
+│   │   │   │   └── TopBlogs.vue
+│   │   ├── views/          # Major view components
+│   │   │   ├── HomeView.vue
+│   │   │   ├── PortfolioView.vue
+│   │   │   ├── AboutUsView.vue
+│   │   │   ├── ContactUsView.vue
+│   │   │   ├── ServicesView.vue
+│   │   │   ├── BlogView.vue
+│   │   │   ├── GetAQuoteView.vue
+│   │   │   ├── DashboardView.vue
+│   │   │   └── PostBlogsView.vue
+│   │   ├── router/         # Vue Router configuration
+│   │   │   └── index.js    # Router setup
+│   │   ├── store/          # Vuex store modules (if used)
+│   │   ├── assets/         # Static assets like images, stylesheets
+│   │   ├── App.vue         # Main Vue application component
+│   │   └── main.js         # Vue app initialization
 │
-└── server/          # Node.js Express backend
-    ├── controllers/
-    ├── middleware/
-    ├── routes/
-    ├── config/
-    ├── models/
-    ├── .env
-    └── server.js
+└── server/                  # Node.js Express backend
+    ├── controllers/        # Request handlers
+    ├── middleware/         # Middleware functions
+    ├── routes/             # API routes
+    ├── config/             # Configuration files (e.g., database configuration)
+    ├── models/             # Database models
+    ├── .env                # Environment variables
+    └── server.js           # Express server setup
+
 ```
 ### Initial Frontend Setup
  Clone the repository:

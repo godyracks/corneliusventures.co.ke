@@ -1,6 +1,6 @@
 <template>
   <div class="dashboard-container">
-    <Navbar />
+ 
      <h1>Dashboard - Upload Project</h1> 
      <!-- Button to navigate to the blog post creation page -->
     <button @click="navigateToCreateBlog" class="create-blog-button">Create a New Blog Post</button>
@@ -30,7 +30,7 @@
       </div>
       <div class="form-group">
         <label>Status:</label>
-        <input v-model="status" type="text" placeholder="Enter status (ongoing/completed/not started)">
+        <input v-model="status" type="text" placeholder="Enter status (in progress/completed/not started)">
       </div>
       <button type="submit" class="submit-button">Submit</button>
     </form>
@@ -42,12 +42,10 @@
 
 <script>
 import axios from 'axios';
-import Navbar from './Navbar.vue';
+
 
 export default {
-  components: {
-    Navbar // Register Navbar component
-  },
+ 
   data() {
     return {
       name: '',

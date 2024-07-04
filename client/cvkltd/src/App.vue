@@ -7,21 +7,21 @@
 </template>
 
 <script>
-import Spinner from '@/components/Spinner.vue';
+import Spinner from '@/components/common/Spinner.vue';
 export default {
   name: 'App',
 
   components: {
     Spinner,
-    Home: () => import('./components/Home.vue'),
-    Portfolio: () => import('./components/Portfolio.vue'),
-    AboutUs: () => import('./components/AboutUs.vue'),
-    ContactUs: () => import('./components/ContactUs.vue'),
-    Services: () => import('./components/Services.vue'),
-    Blog: () => import('./components/Blog.vue'),
-    GetAQuote: () => import('./components/GetAQuote.vue'),
-    Dashboard: () => import('./components/Dashboard.vue'),
-    PostBlogs: () => import('./components/PostBlogs.vue'),
+    Home: () => import('./views/HomeView.vue'),
+    Portfolio: () => import('./views/PortfolioView.vue'),
+    AboutUs: () => import('./views/AboutUsView.vue'),
+    ContactUs: () => import('./views/ContactUsView.vue'),
+    PostBlog: () => import('./views/PostBlogsView.vue'),
+    Services: () => import('./views/ServicesView.vue'),
+    Dashboard: () => import('./views/DashboardView.vue'),
+    GetAQuote: () => import('./views/GetAQuoteView.vue'),
+
   }
 }
 </script>
