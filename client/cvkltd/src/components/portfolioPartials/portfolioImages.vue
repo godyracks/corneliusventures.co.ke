@@ -58,10 +58,43 @@ export default {
   margin: 8px;
   flex: 1 1 calc(50% - 32px);
   box-sizing: border-box;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 img {
   max-width: 100%;
   height: auto;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover img {
+  transform: scale(1.05);
+}
+
+h2 {
+  font-size: 1.5em;
+  margin: 16px 0 8px;
+  transition: color 0.3s ease;
+}
+
+.project-card:hover h2 {
+  color: #ff6600;
+}
+
+p {
+  margin: 8px 0;
+  transition: color 0.3s ease;
+}
+
+.project-card:hover p {
+  color: #333;
 }
 </style>
