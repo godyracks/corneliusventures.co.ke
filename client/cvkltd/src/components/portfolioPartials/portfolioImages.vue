@@ -1,25 +1,23 @@
 <template>
   <div>
-  
-
     <h1>Portfolio</h1>
-    <div v-for="project in projects" :key="project.id" class="project-card">
-      <img :src="getImageUrl(project.image1_url)" alt="Project Image" />
-      <h2>{{ project.name }}</h2>
-      <p>{{ project.description }}</p>
-      <p>Start Date: {{ formatDate(project.start_date) }}</p>
-      <p v-if="project.complete_date">Complete Date: {{ formatDate(project.complete_date) }}</p>
-      <p>Status: {{ project.status }}</p>
+    <div class="portfolio-container">
+      <div v-for="project in projects" :key="project.id" class="project-card">
+        <img :src="getImageUrl(project.image1_url)" alt="Project Image" />
+        <h2>{{ project.name }}</h2>
+        <p>{{ project.description }}</p>
+        <p>Start Date: {{ formatDate(project.start_date) }}</p>
+        <p v-if="project.complete_date">Complete Date: {{ formatDate(project.complete_date) }}</p>
+        <p>Status: {{ project.status }}</p>
+      </div>
     </div>
- 
   </div>
 </template>
+
 <script>
 import axios from 'axios';
 
-
 export default {
-
   data() {
     return {
       projects: []
@@ -48,11 +46,20 @@ export default {
 </script>
 
 <style scoped>
+.portfolio-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
 .project-card {
   border: 1px solid #ddd;
   padding: 16px;
-  margin: 16px 0;
+  margin: 8px;
+  flex: 1 1 calc(50% - 32px);
+  box-sizing: border-box;
 }
+
 img {
   max-width: 100%;
   height: auto;
