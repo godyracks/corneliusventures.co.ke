@@ -50,17 +50,20 @@ export default {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .project-card {
   border: 1px solid #ddd;
-  padding: 16px;
+  /*padding: 16px;*/
   margin: 8px;
   flex: 1 1 calc(50% - 32px);
   box-sizing: border-box;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   background-color: #fff;
   border-radius: 8px;
+  max-height: 300px;
 }
 
 .project-card:hover {
@@ -70,8 +73,9 @@ export default {
 
 img {
   max-width: 100%;
-  height: auto;
-  border-radius: 8px;
+  height: 150px;
+  object-fit: cover;
+
   transition: transform 0.3s ease;
 }
 
