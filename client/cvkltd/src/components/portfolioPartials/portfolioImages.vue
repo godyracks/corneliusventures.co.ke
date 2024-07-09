@@ -168,8 +168,9 @@ export default {
   display: flex;
   justify-content: center;
   overflow-x: auto;
-  max-width: 100%;
+  max-width: 1000px;
   padding: 16px 0;
+  margin:0 auto;
   scrollbar-width: none; /* For Firefox */
   -ms-overflow-style: none;  /* For Internet Explorer and Edge */
 }
@@ -198,7 +199,7 @@ export default {
   overflow: hidden;
   width: 50%;
   height: 300px;
-  border-radius: 8px;
+ 
   box-sizing: border-box;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -213,6 +214,7 @@ export default {
   margin-top: -15px;
   padding: 16px;
    width: 250px; 
+    border-radius: 8px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
