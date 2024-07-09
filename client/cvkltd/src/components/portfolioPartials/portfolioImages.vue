@@ -158,7 +158,9 @@ export default {
 .tab-content {
   max-width: 800px;
   margin: 0 auto;
+  color:#fff;
   padding: 16px;
+  border-radius: 18px;
   margin-bottom: 36px;
   background-color: #180a49;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -214,6 +216,7 @@ export default {
   margin-top: -15px;
   padding: 16px;
    width: 250px; 
+     color:#fff;
     border-radius: 8px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   z-index: 1;
@@ -260,6 +263,7 @@ p {
 form {
   display: flex;
   flex-direction: column;
+  
 }
 
 form div {
