@@ -76,8 +76,8 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
-  max-width: 1200px;
+  gap: 40px;
+  max-width: 800px;
   margin-top: 10px;
 }
 
