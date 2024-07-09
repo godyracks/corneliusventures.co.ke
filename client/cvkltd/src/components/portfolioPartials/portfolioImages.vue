@@ -14,6 +14,11 @@
         </div>
       </div>
     </div>
+    <div v-if="activeTab === 0" class="tab-content">
+      <h2>Our Workflow</h2>
+      <p>Here you can describe your workflow, steps, processes, etc.</p>
+      <!-- Add more detailed content as necessary -->
+    </div>
     <div v-if="activeTab === 1" class="portfolio-container">
       <div class="projects-row">
         <div v-for="project in projects" :key="project.id" class="project-wrapper">
@@ -32,6 +37,25 @@
         </div>
       </div>
     </div>
+    <div v-if="activeTab === 2" class="tab-content">
+      <h2>Get a Quote</h2>
+      <p>Here you can describe how clients can get a quote from you.</p>
+      <form @submit.prevent="submitQuote">
+        <div>
+          <label for="name">Name:</label>
+          <input type="text" id="name" v-model="quoteForm.name" required />
+        </div>
+        <div>
+          <label for="email">Email:</label>
+          <input type="email" id="email" v-model="quoteForm.email" required />
+        </div>
+        <div>
+          <label for="details">Project Details:</label>
+          <textarea id="details" v-model="quoteForm.details" required></textarea>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
   </div>
 </template>
 
@@ -48,9 +72,14 @@ export default {
       tabs: [
         { title: 'How We Work', subtitle: 'Our Workflow', icon: workflowIcon },
         { title: 'Our Work', subtitle: 'Our Completed Projects', icon: workIcon },
-        { title: 'Get a Quote', subtitle: 'Get a Catchy Thin Line', icon: quoteIcon },
+        { title: 'Get a Quote', subtitle: 'Submit your request', icon: quoteIcon },
       ],
       activeTab: 1,
+      quoteForm: {
+        name: '',
+        email: '',
+        details: ''
+      }
     };
   },
   mounted() {
@@ -70,6 +99,16 @@ export default {
     },
     setActiveTab(index) {
       this.activeTab = index;
+    },
+    async submitQuote() {
+      try {
+        const response = await axios.post('http://localhost:5000/api/quotes', this.quoteForm);
+        console.log('Quote submitted:', response.data);
+        // Handle successful submission (e.g., show a success message)
+      } catch (error) {
+        console.error('Error submitting quote:', error);
+        // Handle error (e.g., show an error message)
+      }
     }
   }
 };
@@ -113,6 +152,14 @@ export default {
   color: #666;
 }
 
+.tab-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 16px;
+  background-color: #fff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
 .portfolio-container {
   display: flex;
   justify-content: center;
@@ -120,12 +167,13 @@ export default {
   max-width: 100%;
   padding: 16px 0;
   scrollbar-width: none; /* For Firefox */
-  -ms-overflow-style: none; 
+  -ms-overflow-style: none;  /* For Internet Explorer and Edge */
 }
 
 .portfolio-container::-webkit-scrollbar {
-  display: none;  
+  display: none;  /* For Chrome, Safari, and Opera */
 }
+
 .projects-row {
   display: flex;
   flex-direction: row;
@@ -200,8 +248,26 @@ p {
   color: #666;
 }
 
-.view-project-button {
-  margin-top: auto;
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form div {
+  margin-bottom: 16px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+button {
   background-color: #ff6600;
   color: #fff;
   border: none;
@@ -211,7 +277,18 @@ p {
   transition: background-color 0.3s ease;
 }
 
-.view-project-button:hover {
+button:hover {
   background-color: #e65c00;
+}
+@media screen and (max-width: 769px) {
+  .project-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .image-card, .details-card {
+    width: 100%;
+    margin: 8px 0;
+  }
 }
 </style>

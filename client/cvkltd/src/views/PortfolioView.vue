@@ -1,7 +1,8 @@
 <script setup>
 import Navbar from '../components/common/Navbar.vue'
-import Images from '../components/portfolioPartials/portfolioImages.vue'
+import Tabs from '../components/portfolioPartials/portfolioImages.vue'
 import Hero2 from '../components/portfolioPartials/portfolioBanner.vue'
+import Ongoing from '../components/portfolioPartials/ongoingProjects.vue'
 import Footer from '../components/common/Footer.vue'
 
 </script>
@@ -10,7 +11,8 @@ import Footer from '../components/common/Footer.vue'
   <main>
     <Navbar />
       <Hero2 />
-    <Images />
+    <Tabs />
+    <Ongoing />
     <Footer />
   </main>
 </template>
