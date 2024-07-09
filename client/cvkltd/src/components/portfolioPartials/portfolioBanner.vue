@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import backgroundImage from '@/assets/mansion_under.jpg';
+import backgroundImage from '@/assets/excavator.jpg';
 
 export default {
   name: 'PortfolioBanner',
