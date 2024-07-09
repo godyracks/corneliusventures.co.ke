@@ -83,7 +83,7 @@ export default {
 
 .project-card {
   width: calc(50% - 20px);
-  background-color: rgba(8, 1, 26, 0.712);
+  background-color: #180a49;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;

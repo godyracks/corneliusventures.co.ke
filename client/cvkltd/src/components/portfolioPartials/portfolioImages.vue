@@ -131,8 +131,11 @@ export default {
 }
 
 .tab.active {
-  background-color: #e0f7fa;
+  background-color: #0ac0d8;
   border-color: #00796b;
+  border-radius: 18px;
+  margin-top: 10px;
+ 
 }
 
 .tab-icon {
@@ -157,7 +160,7 @@ export default {
   margin: 0 auto;
   padding: 16px;
   margin-bottom: 36px;
-  background-color: #fff;
+  background-color: #180a49;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
@@ -191,7 +194,7 @@ export default {
 }
 
 .image-card, .details-card {
-  background-color: #fff;
+  background-color: #180a49;
   overflow: hidden;
   width: 50%;
   height: 300px;
