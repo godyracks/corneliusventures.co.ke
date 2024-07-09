@@ -60,15 +60,15 @@ export default {
 .project-wrapper {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: right;
   margin: 16px 0;
   width: 100%;
   max-width: 600px;
+
+
 }
 
 .image-card, .details-card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
   background-color: #fff;
   overflow: hidden;
   width: 50%;
@@ -82,7 +82,8 @@ export default {
 }
 
 .details-card {
-  margin-left: -5px;
+  margin-left: -15px;
+  margin-top: -15px;
   padding: 16px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   z-index: 1;
