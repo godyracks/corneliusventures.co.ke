@@ -16,8 +16,8 @@
     </div>
     <div v-if="activeTab === 0" class="tab-content">
       <h2>Our Workflow</h2>
-      <p>Here you can describe your workflow, steps, processes, etc.</p>
-      <!-- Add more detailed content as necessary -->
+      <p>Here you can describe your workflow, steps, processes,just like in the homepage</p>
+      
     </div>
     <div v-if="activeTab === 1" class="portfolio-container">
       <div class="projects-row">
@@ -118,7 +118,7 @@ export default {
 .tabs-container {
   display: flex;
   justify-content: space-around;
-  margin-bottom: 16px;
+  margin-bottom: 36px;
 }
 
 .tab {
@@ -156,6 +156,7 @@ export default {
   max-width: 800px;
   margin: 0 auto;
   padding: 16px;
+  margin-bottom: 36px;
   background-color: #fff;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
