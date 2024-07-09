@@ -2,13 +2,19 @@
   <div>
     <h1>Portfolio</h1>
     <div class="portfolio-container">
-      <div v-for="project in projects" :key="project.id" class="project-card">
-        <img :src="getImageUrl(project.image1_url)" alt="Project Image" />
-        <h2>{{ project.name }}</h2>
-        <p>{{ project.description }}</p>
-        <p>Start Date: {{ formatDate(project.start_date) }}</p>
-        <p v-if="project.complete_date">Complete Date: {{ formatDate(project.complete_date) }}</p>
-        <p>Status: {{ project.status }}</p>
+      <div v-for="project in projects" :key="project.id" class="project-wrapper">
+        <div class="image-card">
+          <img :src="getImageUrl(project.image1_url)" alt="Project Image" />
+          <div class="play-button">
+            <!-- <img src="play-icon.png" alt="Play Icon" /> -->
+            <span>Play Images</span>
+          </div>
+        </div>
+        <div class="details-card">
+          <h2>{{ project.name }}</h2>
+          <p>{{ project.description }}</p>
+          <button class="view-project-button">View Project</button>
+        </div>
       </div>
     </div>
   </div>
@@ -35,9 +41,6 @@ export default {
         console.error('Error fetching projects:', error);
       }
     },
-    formatDate(date) {
-      return new Date(date).toLocaleDateString();
-    },
     getImageUrl(imageFilename) {
       return `http://localhost:5000/${imageFilename}`;
     }
@@ -48,57 +51,93 @@ export default {
 <style scoped>
 .portfolio-container {
   display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
+  flex-direction: column;
+  align-items: center;
   max-width: 800px;
   margin: 0 auto;
 }
 
-.project-card {
-  border: 1px solid #ddd;
-  /*padding: 16px;*/
-  margin: 8px;
-  flex: 1 1 calc(50% - 32px);
-  box-sizing: border-box;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background-color: #fff;
-  border-radius: 8px;
-  max-height: 300px;
+.project-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin: 16px 0;
+  width: 100%;
+  max-width: 600px;
 }
 
-.project-card:hover {
-  transform: translateY(-10px);
+.image-card, .details-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  overflow: hidden;
+  width: 50%;
+  height: 300px;
+  box-sizing: border-box;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-card {
+  position: relative;
+}
+
+.details-card {
+  margin-left: -5px;
+  padding: 16px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
 }
 
 img {
-  max-width: 100%;
-  height: 150px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-
-  transition: transform 0.3s ease;
 }
 
-.project-card:hover img {
-  transform: scale(1.05);
+.play-button {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  display: flex;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.play-button img {
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+}
+
+.play-button span {
+  color: #fff;
+  font-size: 14px;
 }
 
 h2 {
   font-size: 1.5em;
   margin: 16px 0 8px;
-  transition: color 0.3s ease;
-}
-
-.project-card:hover h2 {
-  color: #ff6600;
 }
 
 p {
   margin: 8px 0;
-  transition: color 0.3s ease;
+  color: #666;
 }
 
-.project-card:hover p {
-  color: #333;
+.view-project-button {
+  margin-top: auto;
+  background-color: #ff6600;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.view-project-button:hover {
+  background-color: #e65c00;
 }
 </style>
