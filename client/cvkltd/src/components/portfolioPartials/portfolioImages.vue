@@ -15,18 +15,20 @@
       </div>
     </div>
     <div v-if="activeTab === 1" class="portfolio-container">
-      <div v-for="project in projects" :key="project.id" class="project-wrapper">
-        <div class="image-card">
-          <img :src="getImageUrl(project.image1_url)" alt="Project Image" />
-          <div class="play-button">
-            <!-- <img src="play-icon.png" alt="Play Icon" /> -->
-            <span>Play Images</span>
+      <div class="projects-row">
+        <div v-for="project in projects" :key="project.id" class="project-wrapper">
+          <div class="image-card">
+            <img :src="getImageUrl(project.image1_url)" alt="Project Image" />
+            <div class="play-button">
+              <!-- <img src="play-icon.png" alt="Play Icon" /> -->
+              <span>Play Images</span>
+            </div>
           </div>
-        </div>
-        <div class="details-card">
-          <h2>{{ project.name }}</h2>
-          <p>{{ project.description }}</p>
-          <button class="view-project-button">View Project</button>
+          <div class="details-card">
+            <h2>{{ project.name }}</h2>
+            <p>{{ project.description }}</p>
+            <button class="view-project-button">View Project</button>
+          </div>
         </div>
       </div>
     </div>
@@ -113,19 +115,30 @@ export default {
 
 .portfolio-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 800px;
-  margin: 0 auto;
+  justify-content: center;
+  overflow-x: auto;
+  max-width: 100%;
+  padding: 16px 0;
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; 
+}
+
+.portfolio-container::-webkit-scrollbar {
+  display: none;  
+}
+.projects-row {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  width: 100%;
 }
 
 .project-wrapper {
   display: flex;
   flex-direction: row;
-  align-items: right;
-  margin: 16px 0;
-  width: 100%;
-  max-width: 600px;
+  margin: 16px;
+  flex: 0 0 auto;
+  width: 300px;
 }
 
 .image-card, .details-card {
