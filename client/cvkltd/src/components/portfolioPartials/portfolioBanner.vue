@@ -22,7 +22,7 @@ export default {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         width: '100%',
-        height: '300px' /* Adjust the height as needed */
+        height: '350px' 
       };
     }
   }
