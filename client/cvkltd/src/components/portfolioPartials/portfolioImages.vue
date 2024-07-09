@@ -152,7 +152,7 @@ export default {
 .tab-subtitle {
   font-size: 0.9em;
   margin: 0;
-  color: #666;
+  color: #0a1fe0;
 }
 
 .tab-content {
