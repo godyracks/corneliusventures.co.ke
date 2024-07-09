@@ -198,18 +198,21 @@ export default {
   overflow: hidden;
   width: 50%;
   height: 300px;
+  border-radius: 8px;
   box-sizing: border-box;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .image-card {
   position: relative;
+ width: 300px; 
 }
 
 .details-card {
   margin-left: -15px;
   margin-top: -15px;
   padding: 16px;
+   width: 250px; 
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }

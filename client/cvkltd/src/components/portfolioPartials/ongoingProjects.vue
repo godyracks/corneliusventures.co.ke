@@ -4,7 +4,7 @@
       <h1>Ongoing Projects</h1>
       <div class="projects-container">
         <div v-for="project in projects" :key="project.id" class="project-card">
-          <img :src="getImageUrl(project.image_url)" :alt="project.name" />
+          <img :src="getImageUrl(project.image1_url)" :alt="project.name" />
           <div class="project-details">
             <h2>{{ project.name }}</h2>
             <p>{{ project.description }}</p>
@@ -18,14 +18,14 @@
 
 <script>
 import axios from 'axios';
-import backgroundImage from '@/assets/arch_design.jpg'; // Importing the image using ES6 module syntax
+import backgroundImage from '@/assets/arch_design.jpg'; 
 
 export default {
   name: 'OngoingProjects',
   data() {
     return {
       projects: [],
-      backgroundImage: `url(${backgroundImage})`, // Set the background image dynamically
+      backgroundImage: `url(${backgroundImage})`, 
     };
   },
   mounted() {
@@ -83,8 +83,9 @@ export default {
 
 .project-card {
   width: calc(50% - 20px);
+  max-width: 300px;
   background-color: #180a49;
-  padding: 20px;
+border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   display: flex;
@@ -95,12 +96,13 @@ export default {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  border-radius: 8px;
+  overflow: hidden;
   margin-bottom: 10px;
 }
 
 .project-details {
   flex: 1;
+    padding: 20px;
 }
 
 h1 {
@@ -133,12 +135,7 @@ p {
 @media screen and (max-width: 769px) {
 .project-card {
   width: calc(100% - 20px);
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
+ 
 }
 }
 </style>
