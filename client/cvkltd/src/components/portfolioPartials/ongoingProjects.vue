@@ -52,8 +52,9 @@ export default {
   position: relative;
   background-size: cover;
   background-position: center;
-  height: 500px; /* Adjust height as needed */
+ height: 1800px; /*change this property the best way you can @matagaro*/
   overflow: hidden;
+  margin-bottom: 0; 
 }
 
 .overlay {
@@ -62,7 +63,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 255, 0.5); /* Blue overlay with 50% opacity */
+  background-color: rgba(171, 171, 228, 0.5); /* Blue overlay with 50% opacity */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -77,7 +78,7 @@ export default {
   justify-content: center;
   gap: 20px;
   max-width: 1200px;
-  margin-top: 40px;
+  margin-top: 10px;
 }
 
 .project-card {
@@ -128,5 +129,16 @@ p {
 
 .view-project-button:hover {
   background-color: #e65c00;
+}
+@media screen and (max-width: 769px) {
+.project-card {
+  width: calc(100% - 20px);
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
 }
 </style>
