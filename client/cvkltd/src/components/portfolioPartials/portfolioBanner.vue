@@ -45,13 +45,16 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 255, 0.5); /* Blue overlay with 50% opacity */
+  background-color: rgba(128, 128, 232, 0.5); /* Blue overlay with 50% opacity */
   z-index: 1;
 }
 
 h1 {
-  position: relative;
+   position: absolute;
+  /* align-content: flex-start; */ 
+  text-align: left;
   z-index: 2;
   font-size: 3em;
+  font-weight: 800;
 }
 </style>
