@@ -1,7 +1,20 @@
 <template>
   <div>
-    <h1>Portfolio</h1>
-    <div class="portfolio-container">
+    <div class="tabs-container">
+      <div
+        v-for="(tab, index) in tabs"
+        :key="index"
+        :class="['tab', { active: index === activeTab }]"
+        @click="setActiveTab(index)"
+      >
+        <img :src="tab.icon" alt="Tab Icon" class="tab-icon" />
+        <div>
+          <p class="tab-title">{{ tab.title }}</p>
+          <p class="tab-subtitle">{{ tab.subtitle }}</p>
+        </div>
+      </div>
+    </div>
+    <div v-if="activeTab === 1" class="portfolio-container">
       <div v-for="project in projects" :key="project.id" class="project-wrapper">
         <div class="image-card">
           <img :src="getImageUrl(project.image1_url)" alt="Project Image" />
@@ -22,11 +35,20 @@
 
 <script>
 import axios from 'axios';
+import workflowIcon from '@/assets/plan_ic.png';
+import workIcon from '@/assets/work_ic.png';
+import quoteIcon from '@/assets/quotation.png';
 
 export default {
   data() {
     return {
-      projects: []
+      projects: [],
+      tabs: [
+        { title: 'How We Work', subtitle: 'Our Workflow', icon: workflowIcon },
+        { title: 'Our Work', subtitle: 'Our Completed Projects', icon: workIcon },
+        { title: 'Get a Quote', subtitle: 'Get a Catchy Thin Line', icon: quoteIcon },
+      ],
+      activeTab: 1,
     };
   },
   mounted() {
@@ -43,12 +65,52 @@ export default {
     },
     getImageUrl(imageFilename) {
       return `http://localhost:5000/${imageFilename}`;
+    },
+    setActiveTab(index) {
+      this.activeTab = index;
     }
   }
 };
 </script>
 
 <style scoped>
+.tabs-container {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 16px;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.tab.active {
+  background-color: #e0f7fa;
+  border-color: #00796b;
+}
+
+.tab-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+.tab-title {
+  font-size: 1.2em;
+  margin: 0;
+}
+
+.tab-subtitle {
+  font-size: 0.9em;
+  margin: 0;
+  color: #666;
+}
+
 .portfolio-container {
   display: flex;
   flex-direction: column;
@@ -64,8 +126,6 @@ export default {
   margin: 16px 0;
   width: 100%;
   max-width: 600px;
-
-
 }
 
 .image-card, .details-card {
